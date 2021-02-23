@@ -91,13 +91,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4556099928856283918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f63d117ccc6fa3c44928ae91f95587b3, type: 3}
+  m_Script: {fileID: 11500000, guid: c492ab7d949665c4fb746bc6bae1842e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 65335
-  fov: 0
-  viewDistance: 0
-  rotation: 123.39
-  isUpdate: 0
+  radius: 0
+  numberVertices: 0
+  angle: 0
+  newVerticesPos: []
+  triangles: 
