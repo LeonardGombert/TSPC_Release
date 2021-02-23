@@ -45,7 +45,7 @@ namespace Gameplay
     [System.Serializable]
     public abstract class Room
     {
-        public string roomName;
+        public RoomName roomName;
 
         [InfoBox(@"@""Modifier : "" + this.roomModifier.ToString()")]
 

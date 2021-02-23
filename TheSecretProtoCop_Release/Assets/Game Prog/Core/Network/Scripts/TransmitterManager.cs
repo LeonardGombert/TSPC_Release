@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Gameplay;
 using Sirenix.OdinInspector;
+using System;
 
 namespace Networking
 {
@@ -111,7 +112,7 @@ namespace Networking
 
             for (int i = 0; i < levelVariable.pickedRooms.Count; i++)
             {
-                _names[i] = levelVariable.pickedRooms[i].roomName;
+                _names[i] = levelVariable.pickedRooms[i].roomName.ToString();
                 _types[i] = (int)levelVariable.pickedRooms[i].roomModifier;
             }
 
@@ -125,7 +126,11 @@ namespace Networking
             for (int i = 0; i < size; i++)
             {
                 Debug.Log("with room : " + names[i] + " and modifier : " + (ModifierType)modifierTypes[i]);
-                _levelHolder.pickedRooms.Add(new RoomData { roomName = names[i], roomModifier = (ModifierType)modifierTypes[i] });
+                
+                RoomName parsedName;
+                Enum.TryParse(names[i], out parsedName);
+
+                _levelHolder.pickedRooms.Add(new RoomData { roomName = parsedName, roomModifier = (ModifierType)modifierTypes[i] });
             }
 
             LevelManager.instance.BuildLevel();

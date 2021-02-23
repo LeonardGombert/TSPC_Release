@@ -19,7 +19,7 @@ namespace Gameplay
     [HideReferenceObjectPicker]
     public class RoomData
     {
-        public string roomName;
+        public RoomName roomName;
         public ModifierType roomModifier { get; set; } = 0;
     }
 
