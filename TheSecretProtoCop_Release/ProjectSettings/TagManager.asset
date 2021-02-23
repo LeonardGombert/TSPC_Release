@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy/Light Guard
+  - Camera/Static Camera
+  - Floor
+  - Wall
+  - Dead
+  - Window
+  - Jammer
+  - Enemy/Heavy Guard
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -13,17 +22,17 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - TeleportAreas
+  - Environment
+  - Agents
+  - Traps
+  - Interactable
+  - Window
+  - Post-Processing
+  - Door
+  - Camera
+  - Line
   - 
   - 
   - 
