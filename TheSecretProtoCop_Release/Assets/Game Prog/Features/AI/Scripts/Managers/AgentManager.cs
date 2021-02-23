@@ -1,7 +1,10 @@
-﻿using Sirenix.OdinInspector;
+﻿using Gameplay.VR;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Events;
 
 namespace Gameplay.AI
 {
@@ -9,7 +12,7 @@ namespace Gameplay.AI
 
     public enum Usage { Start, Resume, End }
 
-    public abstract class AgentManager : MonoBehaviour
+    public abstract class AgentManager : MonoBehaviour, IKillable
     {
         protected Dictionary<StateType, AgentBehavior> agentBehaviors = new Dictionary<StateType, AgentBehavior>();
 
@@ -19,16 +22,22 @@ namespace Gameplay.AI
 
         protected bool resumeNext = false;
 
-        public bool isDead { get; protected set; }
+        public bool isDead { get; set; }
 
         [Title("Agent")]
 
+        public NavMeshAgent navMeshAgent;
+
         public Transform agentRig;
         public GameObject ragdollPrefab; public GameObject ragdoll { get; set; }
-        
-        void OnEnable() => AIManager.agents.Add(this);
 
-        void OnDisable() => AIManager.agents.Remove(this);
+        [Title("Death")]
+
+        public UnityEvent deathEvent;
+        public float thrust = 1.0f;
+
+        private void OnEnable() => AIManager.agents.Add(this);
+        private void OnDisable() => AIManager.agents.Remove(this);
 
         void Awake()
         {
@@ -81,24 +90,44 @@ namespace Gameplay.AI
             currentState = StateType.None;
         }
 
-        public void KillAgent()
+        [Button]
+        public void Die(Vector3 force = default)
         {
-            Debug.Log("Kill Agent");
+            if (!isDead)
+            {
+                Debug.Log("Kill Agent");
 
-            StopAgent();
+                StopAgent();
 
-            isDead = true;
+                agentRig.gameObject.SetActive(false);
 
-            agentRig.gameObject.SetActive(false);
+                ragdoll = Instantiate(ragdollPrefab);
+                ragdoll.transform.parent = transform;
+                ragdoll.transform.position = transform.position;
+                RagdollBehavior ragdollBehavior = ragdoll.GetComponentInChildren<RagdollBehavior>();
+                ragdollBehavior.ActivateRagdollWithForce(force, ForceMode.Impulse);
+
+                deathEvent.Invoke();
+
+                isDead = true;
+            }
         }
 
-        public void DeletePreviousRagdoll()
+        public void Revive(Vector3 pos, Quaternion rot)
         {
+            agentRig.gameObject.SetActive(true);
+
+            Debug.Log(pos);
+            transform.position = pos;
+            transform.rotation = rot;
+
             if (ragdoll != null)
             {
                 Debug.Log("Previous Ragdoll Destroyed");
                 Destroy(ragdoll);
             }
+
+            isDead = false;
         }
     }
 }
