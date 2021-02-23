@@ -844,6 +844,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR Feedback Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6625624444017045400, guid: fb555567d260a0746a80efded5961758, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7809330102333434123, guid: fb555567d260a0746a80efded5961758, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb555567d260a0746a80efded5961758, type: 3}
 --- !u!4 &929449247488257635 stripped
@@ -932,12 +940,16 @@ PrefabInstance:
       objectReference: {fileID: 1434751489}
     - target: {fileID: 1525769403144350535, guid: 7696dbd4dc514c64c8899dd0607249a7, type: 3}
       propertyPath: debugGame
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1525769403144350535, guid: 7696dbd4dc514c64c8899dd0607249a7, type: 3}
       propertyPath: _debuggingGame
       value: 
       objectReference: {fileID: 11400000, guid: 6a1d8d499f8f6cd48b992cff3f4fb20f, type: 2}
+    - target: {fileID: 1525769403144350535, guid: 7696dbd4dc514c64c8899dd0607249a7, type: 3}
+      propertyPath: _isMobile
+      value: 
+      objectReference: {fileID: 11400000, guid: 799cc0b33cf4851448b2da648a772c9c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7696dbd4dc514c64c8899dd0607249a7, type: 3}
 --- !u!4 &1525769403186798942 stripped
@@ -1020,6 +1032,10 @@ PrefabInstance:
       propertyPath: symbolManager
       value: 
       objectReference: {fileID: 532594263}
+    - target: {fileID: 6129269782710857282, guid: cca71f5a9eea02044b0e0853e3f8fa32, type: 3}
+      propertyPath: _isMobile
+      value: 
+      objectReference: {fileID: 11400000, guid: 799cc0b33cf4851448b2da648a772c9c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cca71f5a9eea02044b0e0853e3f8fa32, type: 3}
 --- !u!4 &2906806235926443017 stripped
@@ -1407,6 +1423,10 @@ PrefabInstance:
       propertyPath: maximumModifiersInLevel
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8077612107428191924, guid: 9b53b037544f059428c040dc7863d4f6, type: 3}
+      propertyPath: isMobile
+      value: 
+      objectReference: {fileID: 11400000, guid: 799cc0b33cf4851448b2da648a772c9c, type: 2}
     - target: {fileID: 8077612107428191925, guid: 9b53b037544f059428c040dc7863d4f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

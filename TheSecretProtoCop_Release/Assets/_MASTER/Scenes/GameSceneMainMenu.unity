@@ -291,7 +291,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1294416898
+--- !u!43 &1177430052
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,7 +455,7 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &1488079361
+--- !u!21 &1341533331
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -722,6 +722,10 @@ PrefabInstance:
       propertyPath: generateCodeButton
       value: 
       objectReference: {fileID: 9174000386450379133}
+    - target: {fileID: 5303214728042377228, guid: adf8e2f4d4be6794ab3cacaa11ace37d, type: 3}
+      propertyPath: _isMobile
+      value: 
+      objectReference: {fileID: 11400000, guid: 799cc0b33cf4851448b2da648a772c9c, type: 2}
     - target: {fileID: 5303214728042377229, guid: adf8e2f4d4be6794ab3cacaa11ace37d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -790,11 +794,11 @@ PrefabInstance:
     - target: {fileID: 3179484743362601636, guid: 8bf62ffde78d96744ac9ad60596921c1, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1294416898}
+      objectReference: {fileID: 1177430052}
     - target: {fileID: 3179484743363633952, guid: 8bf62ffde78d96744ac9ad60596921c1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1488079361}
+      objectReference: {fileID: 1341533331}
     - target: {fileID: 9174000385028119280, guid: 8bf62ffde78d96744ac9ad60596921c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
