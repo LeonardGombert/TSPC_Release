@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3938265781617762620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3938265781617762609}
+  - component: {fileID: 3938265781617762622}
+  - component: {fileID: 3938265781617762623}
+  m_Layer: 0
+  m_Name: Symbol Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3938265781617762609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938265781617762620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3938265781617762622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938265781617762620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848b223035fbc4b458724a723f52c94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSymbolLoaded: {fileID: 11400000, guid: f369923a5bd64cd489080ca28b262864, type: 2}
+  onOpenDoor: {fileID: 11400000, guid: d6032a02634764a4cae45e41c7a40a1d, type: 2}
+  onResetCodes: {fileID: 11400000, guid: 6b62b1612016dec47b42644bcef27186, type: 2}
+  iconsAsset:
+  - {fileID: 21300000, guid: 98483f84a5c8ff34db0bf1afd82e4327, type: 3}
+  - {fileID: 21300000, guid: 31cd68d219a468a47883c9dc3ae7b306, type: 3}
+  - {fileID: 21300000, guid: 50201d39d84ec574baf4f99208a05beb, type: 3}
+  - {fileID: 21300000, guid: bf7fcb5db4c8d8a458ccb48f506dac36, type: 3}
+  - {fileID: 21300000, guid: 8f9c9ab6cc211774eaa7ac60eaacfdde, type: 3}
+  - {fileID: 21300000, guid: cb1d1accbfcb98940b8ad6a72302a7d6, type: 3}
+  - {fileID: 21300000, guid: b0b4b9a01fdc9e94c816c1c7be3e735b, type: 3}
+  - {fileID: 21300000, guid: a18d9e1f409b93142ab3d3b87457c69f, type: 3}
+  - {fileID: 21300000, guid: 7c915c20e8a70414d8d215ac8730e74a, type: 3}
+  - {fileID: 21300000, guid: 40a1f87cb262c2f4eb0a67a7e57b8997, type: 3}
+  - {fileID: 21300000, guid: f80cf92d8f8c844429048e6f1c6919e3, type: 3}
+  - {fileID: 21300000, guid: 77f90473c8ea55f4d8e85006a7cb0540, type: 3}
+  - {fileID: 21300000, guid: 31c1ee92c8c31504a8805145c36d4ff0, type: 3}
+  - {fileID: 21300000, guid: c19215b77f816d9499ff47f301f672fe, type: 3}
+  - {fileID: 21300000, guid: 13c584916be71cb4f9b942b02d6397c2, type: 3}
+  - {fileID: 21300000, guid: b1881747d0c121245b3a206d8fda9bf1, type: 3}
+  - {fileID: 21300000, guid: 4ef673f9e0a76df4c80ababbc4ea265e, type: 3}
+  - {fileID: 21300000, guid: 2d13a470403da154d84f9e988992bebf, type: 3}
+  - {fileID: 21300000, guid: 70f973c0ab4393f4294d23c4bdcbcb81, type: 3}
+  - {fileID: 21300000, guid: da4063e4bfb746446a4e9b6204967ba5, type: 3}
+  - {fileID: 21300000, guid: 9e6ad6ef1c897a64fa8e7a2285ec808a, type: 3}
+  - {fileID: 21300000, guid: 7a9cbba420bb5a044b0c1f5373e3df2d, type: 3}
+  - {fileID: 21300000, guid: 53894789e8eec1449a974ba1b5b2e9f4, type: 3}
+  - {fileID: 21300000, guid: b056cb6e86e2e2a4a8c7955f582a2fdd, type: 3}
+  - {fileID: 21300000, guid: 8d3434547a028224e82a77bb954ed334, type: 3}
+  - {fileID: 21300000, guid: 0e800d43cc1df4041a78fac0bf7f8b54, type: 3}
+  iconsAssetReminder: []
+  iconsSelected:
+  - {fileID: 21300000, guid: 37616095ebf53744c950962f33663458, type: 3}
+  - {fileID: 21300000, guid: 72786b43084161c4c81e83eef0990e1a, type: 3}
+  - {fileID: 21300000, guid: 1959adfdc5c338840858eec9307f0184, type: 3}
+  iconsStashed: []
+  codeNames:
+  - Ether
+  - Overkill
+  - Eldorado
+  - Checkmate
+  - Big Data
+  - Boomerang
+  - Calypso
+  - Virus
+  - Opera
+  - Omega
+  - Igloo
+  - Indigo
+  - Jazz
+  - Laser
+  - Lithium
+  - Onyx
+  - Papyrus
+  - Ranch
+  - Safari
+  - Vendetta
+  - Sparrow
+  - Blight
+  - Meridian
+  - Miracle
+  - Spleen
+  - Absolution
+  - Wormhole
+  - Sandstorm
+  pickedNames:
+  - Checkmate
+  - Fischer
+  - French
+  indexes: 
+--- !u!114 &3938265781617762623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938265781617762620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0495881fcb2a8c458606d5a16ec5fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Function: {fileID: 11400000, guid: 04584ff1801e07948a000d37c9cd0632, type: 2}
+  ID: 0
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3938265781617762622}
+        m_TargetAssemblyTypeName: Gameplay.SymbolManager, Assembly-CSharp
+        m_MethodName: LoadSymbols
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  methodName: []
+  component: []

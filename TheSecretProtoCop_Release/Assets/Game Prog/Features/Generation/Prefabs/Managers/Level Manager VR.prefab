@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2605596787377137389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2605596787377137388}
+  - component: {fileID: 2605596787377137379}
+  - component: {fileID: 2605596787377137378}
+  m_Layer: 0
+  m_Name: Level Manager VR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2605596787377137388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605596787377137389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2605596787722332840}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2605596787377137379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605596787377137389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2907319f06e4414581b32daed2db483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onGameSceneStart: {fileID: 11400000, guid: 6bcab1ceee242d848892b583a4e08a1b, type: 2}
+  poolTransform: {fileID: 0}
+  levelAssembler: {fileID: 2605596787377137378}
+  platform: 1
+  levelVR:
+    refreshScene: {fileID: 11400000, guid: 99c9c78504f57fc4795d70ced6417e00, type: 2}
+    playerRig: {fileID: 0}
+    playerBehavior: {fileID: 0}
+  levelMobile:
+    playerBehavior: {fileID: 0}
+--- !u!114 &2605596787377137378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605596787377137389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5c1902628809249b006cdcee14dc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: 1
+  assemblerVR:
+    roomChunks:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    levelHolder: {fileID: 11400000, guid: 0a035a19ba9bc7f4a95d085f8ea52091, type: 2}
+    LevelParent: {fileID: 2605596787377137388}
+    levelEntranceAnchor: {fileID: 2605596787722332840}
+  assemblerMobile:
+    roomChunks: []
+    levelHolder: {fileID: 0}
+    LevelParent: {fileID: 0}
+--- !u!1 &2605596787722332841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2605596787722332840}
+  m_Layer: 0
+  m_Name: Entrance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2605596787722332840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605596787722332841}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2605596787377137388}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
