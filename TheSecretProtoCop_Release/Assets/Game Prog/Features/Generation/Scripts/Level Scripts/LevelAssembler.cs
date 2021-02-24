@@ -54,10 +54,16 @@ namespace Gameplay
 
         public void PickRooms()
         {
+            Debug.Log("THERE ARE " + levelHolder.pickedRooms.Count + " ROOMS TO PICK FROM");
+            Debug.Log("THERE ARE " + roomChunks.Count + " CHUNKS TO PICK FROM");
+
             foreach (RoomData roomData in levelHolder.pickedRooms)
             {
                 foreach (RoomManager roomManager in roomChunks)
                 {
+                    Debug.Log("THE MANAGER'S ROOM NAME IS " + roomManager.room.roomName);
+                    Debug.Log("THE ROOM DATA'S NAME IS " + roomData.roomName);
+
                     if (roomManager.room.roomName == roomData.roomName)
                     {
                         roomManager.room.roomModifier = roomData.roomModifier;

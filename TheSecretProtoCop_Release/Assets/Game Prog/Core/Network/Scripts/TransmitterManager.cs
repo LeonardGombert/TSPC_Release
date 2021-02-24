@@ -114,6 +114,11 @@ namespace Networking
             {
                 _names[i] = levelVariable.pickedRooms[i].roomName.ToString();
                 _types[i] = (int)levelVariable.pickedRooms[i].roomModifier;
+
+                RoomName parsedName;
+                Enum.TryParse(_names[i], out parsedName); // convert level name back to enum
+
+                Debug.LogError("Parsed " + _names[i] + " into " + parsedName);
             }
 
             photonView.RPC("SendBuildLevel", RpcTarget.Others, levelVariable.pickedRooms.Count, _names as object, _types as object);
@@ -129,8 +134,6 @@ namespace Networking
                 
                 RoomName parsedName;
                 Enum.TryParse(names[i], out parsedName); // convert level name back to enum
-
-                Debug.LogError("Parsed " + names[i] + " into " + parsedName);
 
                 _levelHolder.pickedRooms.Add(new RoomData { roomName = parsedName, roomModifier = (ModifierType)modifierTypes[i] });
             }
