@@ -1427,6 +1427,10 @@ PrefabInstance:
       propertyPath: isMobile
       value: 
       objectReference: {fileID: 11400000, guid: 799cc0b33cf4851448b2da648a772c9c, type: 2}
+    - target: {fileID: 8077612107428191924, guid: 9b53b037544f059428c040dc7863d4f6, type: 3}
+      propertyPath: levelFile
+      value: 
+      objectReference: {fileID: 11400000, guid: 244db48a5e75b214f8edf29f8bc4f959, type: 2}
     - target: {fileID: 8077612107428191925, guid: 9b53b037544f059428c040dc7863d4f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

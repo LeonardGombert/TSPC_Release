@@ -128,7 +128,9 @@ namespace Networking
                 Debug.Log("with room : " + names[i] + " and modifier : " + (ModifierType)modifierTypes[i]);
                 
                 RoomName parsedName;
-                Enum.TryParse(names[i], out parsedName);
+                Enum.TryParse(names[i], out parsedName); // convert level name back to enum
+
+                Debug.LogError("Parsed " + names[i] + " into " + parsedName);
 
                 _levelHolder.pickedRooms.Add(new RoomData { roomName = parsedName, roomModifier = (ModifierType)modifierTypes[i] });
             }
