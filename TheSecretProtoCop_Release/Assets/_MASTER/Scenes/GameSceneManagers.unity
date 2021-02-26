@@ -852,6 +852,10 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 9086660911637341291, guid: fb555567d260a0746a80efded5961758, type: 3}
+      propertyPath: teleportationAreaAsset
+      value: 
+      objectReference: {fileID: 8926484042661614526, guid: 39245db3b6037f8489e5e347755e7217, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb555567d260a0746a80efded5961758, type: 3}
 --- !u!4 &929449247488257635 stripped

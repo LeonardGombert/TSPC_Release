@@ -95,7 +95,7 @@ namespace Gameplay.AI
         #region Set
         public void Begin()
         {
-            Debug.Log("Beginning behavior : " + GetType() + " for " + agent.name);
+            //Debug.Log("Beginning behavior : " + GetType() + " for " + agent.name);
 
             active = true;
             actionIndex = 0;
@@ -135,7 +135,7 @@ namespace Gameplay.AI
         {
             actionIndex++;
 
-            Debug.Log(actionIndex + " / " + actions.Count + " " + GetType() + " " + agent.name);
+            //Debug.Log(actionIndex + " / " + actions.Count + " " + GetType() + " " + agent.name);
             if (actions.Count == actionIndex)
             {
                 if (loop) Begin();
