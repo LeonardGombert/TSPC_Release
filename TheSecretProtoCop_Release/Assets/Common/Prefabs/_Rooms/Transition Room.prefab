@@ -366,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entranceAnchor: {fileID: 5938345295365142218}
   exitAnchor: {fileID: 3959697419448826758}
+  playerSpawn: {fileID: 627461213640763519}
 --- !u!1 &696075927156839953
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ namespace Gameplay
 
         public Transform poolTransform;
 
-        public TransitionRoom transitionRoom;
+        public TransitionRoom currentEntrance;
 
         public LevelAssembler levelAssembler;
 
@@ -107,7 +107,7 @@ namespace Gameplay
         public Transform playerRig;
         public VR.PlayerBehavior playerBehavior;
 
-        public TransitionRoom transitionRoom { get => LevelManager.instance.transitionRoom; }
+        public TransitionRoom transitionRoom { get => LevelManager.instance.currentEntrance; }
 
         public override void StartAt(int roomIndex)
         {
