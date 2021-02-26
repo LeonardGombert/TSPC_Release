@@ -105,7 +105,7 @@ MonoBehaviour:
       Data: 7|Gameplay.RoomData, Assembly-CSharp
     - Name: roomName
       Entry: 3
-      Data: 16
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -145,7 +145,7 @@ MonoBehaviour:
       Data: 10|Gameplay.RoomData, Assembly-CSharp
     - Name: roomName
       Entry: 3
-      Data: 16
+      Data: 5
     - Name: 
       Entry: 8
       Data: 

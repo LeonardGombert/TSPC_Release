@@ -89,18 +89,18 @@ namespace Gameplay
 
             for (int i = 0; i < selectedRooms.Count; i++)
             {
-                indexRoomVR = (RoomVR)selectedRooms[i].room;
+                indexRoomVR = (RoomVR)selectedRooms[i].room; // get the room 
 
                 Vector3 translation = currentAnchor.position - indexRoomVR.entranceAnchor.localPosition;
-                indexRoomVR.transform.position = translation;
+                indexRoomVR.transform.position = translation; // change the position of the room
 
                 float angle = currentAnchor.rotation.eulerAngles.y - indexRoomVR.entranceAnchor.localRotation.eulerAngles.y;
-                indexRoomVR.transform.RotateAround(currentAnchor.position, Vector3.up, angle);
+                indexRoomVR.transform.RotateAround(currentAnchor.position, Vector3.up, angle); // channge the rotation of the room
 
-                indexRoomVR.transform.parent = LevelParent;
-                indexRoomVR.transform.gameObject.SetActive(false);
+                indexRoomVR.transform.parent = LevelParent; // set the parent of the room to be the assembler (keep)
+                indexRoomVR.transform.gameObject.SetActive(false); // turn off all other rooms
 
-                currentAnchor = indexRoomVR.exitAnchor;
+                currentAnchor = indexRoomVR.exitAnchor; //
             }
         }
     }
