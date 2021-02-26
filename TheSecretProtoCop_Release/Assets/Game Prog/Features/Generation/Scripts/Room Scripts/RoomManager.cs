@@ -35,7 +35,8 @@ namespace Gameplay
 
         public Room room
         {
-            get {
+            get
+            {
                 if (platform == Platform.VR) return roomVR;
                 else return roomMobile;
             }

@@ -361,8 +361,12 @@ MonoBehaviour:
   _switch: {fileID: 0}
   _sendSwitcherChange: {fileID: 0}
   button: {fileID: 0}
-  image: {fileID: 0}
+  anim: {fileID: 0}
+  timerText: {fileID: 0}
   timerEnable: {fileID: 0}
+  audioSource: {fileID: 0}
+  successPushClip: {fileID: 0}
+  failPushClip: {fileID: 0}
   nodes:
   - {fileID: 2221158999046985538}
   - {fileID: 9089482080416689307}
@@ -4099,8 +4103,12 @@ MonoBehaviour:
   _switch: {fileID: 0}
   _sendSwitcherChange: {fileID: 0}
   button: {fileID: 0}
-  image: {fileID: 0}
+  anim: {fileID: 0}
+  timerText: {fileID: 0}
   timerEnable: {fileID: 0}
+  audioSource: {fileID: 0}
+  successPushClip: {fileID: 0}
+  failPushClip: {fileID: 0}
   nodes:
   - {fileID: 9089482080744599628}
   - {fileID: 7034828027283857391}
@@ -13095,8 +13103,12 @@ MonoBehaviour:
   _switch: {fileID: 0}
   _sendSwitcherChange: {fileID: 0}
   button: {fileID: 0}
-  image: {fileID: 0}
+  anim: {fileID: 0}
+  timerText: {fileID: 0}
   timerEnable: {fileID: 0}
+  audioSource: {fileID: 0}
+  successPushClip: {fileID: 0}
+  failPushClip: {fileID: 0}
   nodes:
   - {fileID: 2221158999436644057}
   - {fileID: 9089482080376211627}
@@ -17112,6 +17124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport Area (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
 --- !u!1001 &5793172989776728637
@@ -17163,7 +17179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6140073478009129058, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: roomVR.roomName
-      value: Level 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6317601306080653706, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -17180,7 +17196,7 @@ PrefabInstance:
     - target: {fileID: 6894314575362039407, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0b16fa8157a99514494c2fb5395ef704, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7955679529570374275, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.5
@@ -17275,7 +17291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9193666675600900447, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 9193666675600900447, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17817,6 +17833,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3586491437039781865, guid: 6b61e11e4380d1547ae7c21ba0a62f3c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3586491437460719469, guid: 6b61e11e4380d1547ae7c21ba0a62f3c, type: 3}
       propertyPath: m_Name
       value: Mesh
@@ -18015,6 +18035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport Area (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
 --- !u!1001 &5793172990526473845
@@ -18072,6 +18096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport Area (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
 --- !u!1001 &5793172990654777616
@@ -18128,6 +18156,10 @@ PrefabInstance:
     - target: {fileID: 4568364011495356595, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
       propertyPath: m_Name
       value: Teleport Area (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
@@ -18306,6 +18338,10 @@ PrefabInstance:
     - target: {fileID: 4568364011495356595, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
       propertyPath: m_Name
       value: Teleport Area (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
@@ -18606,6 +18642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport Area (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
 --- !u!1001 &5793172991163941745
@@ -18796,6 +18836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport Area (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
 --- !u!1001 &5793172991281658343
@@ -18852,6 +18896,10 @@ PrefabInstance:
     - target: {fileID: 4568364011495356595, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
       propertyPath: m_Name
       value: Teleport Area
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
@@ -19135,6 +19183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport Area (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
 --- !u!1001 &5793172991491132418
@@ -19191,6 +19243,10 @@ PrefabInstance:
     - target: {fileID: 4568364011495356595, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
       propertyPath: m_Name
       value: Teleport Area (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
@@ -19574,6 +19630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport Area (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
 --- !u!1001 &5793172991632582532
@@ -19630,6 +19690,10 @@ PrefabInstance:
     - target: {fileID: 4568364011495356595, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
       propertyPath: m_Name
       value: Teleport Area (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
@@ -19688,6 +19752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport Area (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
 --- !u!1001 &5793172991650091197
@@ -19745,6 +19813,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport Area (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
 --- !u!1001 &5793172991671854800
@@ -19801,6 +19873,10 @@ PrefabInstance:
     - target: {fileID: 4568364011495356595, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
       propertyPath: m_Name
       value: Teleport Area (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636833083197300747, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd879636ae9556a489eacd65e7d07b42, type: 3}

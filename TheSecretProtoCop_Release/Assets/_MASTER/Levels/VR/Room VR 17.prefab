@@ -31566,19 +31566,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions: []
---- !u!114 &6877216223943945171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6260792136439851897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f169b02e6bdd5ae4d83968d2de52ecd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sendLoadNextRoom: {fileID: 11400000, guid: 8d184be93c9e31c449c0a8681987f8c9, type: 2}
 --- !u!1 &6544574463930321250
 GameObject:
   m_ObjectHideFlags: 0
@@ -31650,6 +31637,19 @@ MonoBehaviour:
     timeToWait: 0
     orientations:
     - orientation: 1
+--- !u!114 &6877216223943945171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6260792136439851897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f169b02e6bdd5ae4d83968d2de52ecd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sendLoadNextRoom: {fileID: 11400000, guid: 8d184be93c9e31c449c0a8681987f8c9, type: 2}
 --- !u!1 &7675440293364762019
 GameObject:
   m_ObjectHideFlags: 0
@@ -46237,6 +46237,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2240127237870446902, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2599595209678556205, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: teleportationMaterial
       value: 
@@ -46284,6 +46288,10 @@ PrefabInstance:
     - target: {fileID: 7955679529570374275, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955679529570374276, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7955679529620643057, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_Mesh
@@ -46347,7 +46355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9193666675600900447, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 9193666675808806513, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_Name

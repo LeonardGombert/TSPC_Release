@@ -48,14 +48,18 @@ namespace Gameplay.VR.Player
             while (timeElapsed < lerpDuration)
             {
                 valueToLerp = Mathf.Lerp(startValue, endValue, timeElapsed / lerpDuration);
+                
                 _renderer.GetPropertyBlock(_propBlock);
                 _propBlock.SetFloat("_GlowState", valueToLerp);
                 _renderer.SetPropertyBlock(_propBlock);
+                
                 timeElapsed += Time.deltaTime;
+
                 yield return null;
             }
 
             valueToLerp = endValue;
+             
             _propBlock.SetFloat("_GlowState", valueToLerp);
             _renderer.SetPropertyBlock(_propBlock);
         }

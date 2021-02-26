@@ -11337,7 +11337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6140073478009129058, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: roomVR.roomName
-      value: Level 32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6317601306080653706, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11437,7 +11437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9193666675600900447, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38
+      value: -33
       objectReference: {fileID: 0}
     - target: {fileID: 9193666675600900447, guid: 1eb50f3fd10897049af51bf65724717e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13534,6 +13534,10 @@ PrefabInstance:
     - target: {fileID: 3586491436179560246, guid: 6b61e11e4380d1547ae7c21ba0a62f3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586491437039781865, guid: 6b61e11e4380d1547ae7c21ba0a62f3c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b61e11e4380d1547ae7c21ba0a62f3c, type: 3}

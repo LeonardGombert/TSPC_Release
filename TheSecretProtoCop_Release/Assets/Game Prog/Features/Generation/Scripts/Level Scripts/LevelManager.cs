@@ -14,6 +14,8 @@ namespace Gameplay
 
         public Transform poolTransform;
 
+        public TransitionRoom transitionRoom;
+
         public LevelAssembler levelAssembler;
 
         public List<RoomManager> LevelRooms { get; set; } = new List<RoomManager>();
@@ -105,7 +107,7 @@ namespace Gameplay
         public Transform playerRig;
         public VR.PlayerBehavior playerBehavior;
 
-        public RoomVR currentRoomVR { get => (RoomVR)currentRoom.room; }
+        public TransitionRoom transitionRoom { get => LevelManager.instance.transitionRoom; }
 
         public override void StartAt(int roomIndex)
         {
@@ -113,8 +115,8 @@ namespace Gameplay
 
             playerBehavior.ResetPlayer();
 
-            playerRig.position = currentRoomVR.playerStart.position;
-            playerRig.rotation = currentRoomVR.playerStart.rotation;
+            playerRig.position = transitionRoom.playerSpawn.position;
+            playerRig.rotation = transitionRoom.playerSpawn.rotation;
 
             refreshScene.Raise();
         }

@@ -51,6 +51,8 @@ namespace Gameplay
         public List<RoomManager> selectedRooms { get; protected set; } = new List<RoomManager>();
 
         public Transform LevelParent;
+        
+        public TransitionRoom transitionRoom { get => LevelManager.instance.transitionRoom; }
 
         public void PickRooms()
         {
@@ -76,32 +78,38 @@ namespace Gameplay
     [HideLabel]
     public class AssemblerVR : Assembler
     {
-        public Transform levelEntranceAnchor;
+        //public Transform levelEntranceAnchor;
         
         public override void CreateLevel()
         {
             LevelManager.instance.LevelRooms.Clear();
             LevelManager.instance.LevelRooms = selectedRooms;
 
-            Transform currentAnchor = levelEntranceAnchor;
+            //Transform currentAnchor = levelEntranceAnchor;
 
             RoomVR indexRoomVR;
 
             for (int i = 0; i < selectedRooms.Count; i++)
             {
                 indexRoomVR = (RoomVR)selectedRooms[i].room; // get the room 
-
+                /*
                 Vector3 translation = currentAnchor.position - indexRoomVR.entranceAnchor.localPosition;
                 indexRoomVR.transform.position = translation; // change the position of the room
 
                 float angle = currentAnchor.rotation.eulerAngles.y - indexRoomVR.entranceAnchor.localRotation.eulerAngles.y;
-                indexRoomVR.transform.RotateAround(currentAnchor.position, Vector3.up, angle); // channge the rotation of the room
+                indexRoomVR.transform.RotateAround(currentAnchor.position, Vector3.up, angle); // channge the rotation of the room */
 
                 indexRoomVR.transform.parent = LevelParent; // set the parent of the room to be the assembler (keep)
                 indexRoomVR.transform.gameObject.SetActive(false); // turn off all other rooms
 
-                currentAnchor = indexRoomVR.exitAnchor; //
+                //currentAnchor = indexRoomVR.exitAnchor;
             }
+
+            RoomVR firstRoom = (RoomVR)selectedRooms[0].room; // get the first room again
+            // Get distance between current room entrance and Transition Room exit Anchor
+            Vector3 translation = firstRoom.entranceAnchor.position - transitionRoom.exitAnchor.position;
+            transitionRoom.transform.position = translation; // change the position of the transition room
+
         }
     }
 
