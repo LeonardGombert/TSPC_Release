@@ -13,13 +13,13 @@ namespace Gameplay
         public bool startGame;
 
         [Tooltip("Cannot Lose the Game")]
-        public bool debugGame;
+        public bool ghostMode;
 
         public int currentLevelIndex { get; set; }
         private string currentScene;
 
         public BoolVariable _isMobile;
-        public BoolVariable _debuggingGame;
+        public BoolVariable _ghostingGame;
 
         public Transform UICanvas;
 
@@ -41,7 +41,7 @@ namespace Gameplay
 
         void Start()
         {
-            _debuggingGame.Value = debugGame;
+            _ghostingGame.Value = ghostMode;
 
             if (startGame)
             {
@@ -53,7 +53,7 @@ namespace Gameplay
         [Button]
         public void Lose(LoseType loseType)
         {
-            if (debugGame) return;
+            if (ghostMode) return;
 
             // subject to change very soon
             if (_isMobile.Value) loseCanvas.gameObject.SetActive(true);

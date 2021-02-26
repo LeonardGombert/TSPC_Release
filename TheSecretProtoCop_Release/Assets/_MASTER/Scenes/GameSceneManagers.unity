@@ -265,6 +265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Network Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 9097363453319521072, guid: 8b3642f1f15068546b1f8d4e24d1003b, type: 3}
+      propertyPath: singlePlayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b3642f1f15068546b1f8d4e24d1003b, type: 3}
 --- !u!4 &814800403 stripped
@@ -954,6 +958,14 @@ PrefabInstance:
       propertyPath: _isMobile
       value: 
       objectReference: {fileID: 11400000, guid: 799cc0b33cf4851448b2da648a772c9c, type: 2}
+    - target: {fileID: 1525769403144350535, guid: 7696dbd4dc514c64c8899dd0607249a7, type: 3}
+      propertyPath: _ghostingGame
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a1d8d499f8f6cd48b992cff3f4fb20f, type: 2}
+    - target: {fileID: 1525769403144350535, guid: 7696dbd4dc514c64c8899dd0607249a7, type: 3}
+      propertyPath: debugMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7696dbd4dc514c64c8899dd0607249a7, type: 3}
 --- !u!4 &1525769403186798942 stripped
@@ -1223,6 +1235,10 @@ PrefabInstance:
     - target: {fileID: 4629260328843030097, guid: 2f8f030435e3dca4190c24b5d4466168, type: 3}
       propertyPath: m_Name
       value: Main Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629260328843030097, guid: 2f8f030435e3dca4190c24b5d4466168, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4629260329645064858, guid: 2f8f030435e3dca4190c24b5d4466168, type: 3}
       propertyPath: m_IsActive

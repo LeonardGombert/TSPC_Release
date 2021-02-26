@@ -13,6 +13,8 @@ namespace Gameplay
     {
         public bool testNotInVR;
         [ShowIf("testNotInVR")] public Button generateCodeButton;
+        public bool singlePlayer;
+        [ShowIf("singlePlayer")] public GameEvent _OnRoomFulled;
 
         public GameEvent onMainMenuStart;
 
@@ -36,7 +38,10 @@ namespace Gameplay
         {
             if (testNotInVR && Input.GetKeyDown(KeyCode.Space))
             {
-                if (!_isMobile.Value) { generateCodeButton.onClick.Invoke(); }
+                if (!_isMobile.Value) { 
+                    generateCodeButton.onClick.Invoke();
+                    _OnRoomFulled.Raise();
+                }
             }
         }
 
