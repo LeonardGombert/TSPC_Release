@@ -52,7 +52,8 @@ namespace Gameplay
 
         public Transform LevelParent;
         
-        public TransitionRoom transitionRoom { get => LevelManager.instance.transitionRoom; }
+        public TransitionRoom playerSpawnRoom { get => LevelManager.instance.currentStartRoom; }
+        public TransitionRoom playerExitRoom { get => LevelManager.instance.currentExitRoom; }
 
         public void PickRooms()
         {
@@ -106,9 +107,18 @@ namespace Gameplay
             }
 
             RoomVR firstRoom = (RoomVR)selectedRooms[0].room; // get the first room again
-            // Get distance between current room entrance and Transition Room exit Anchor
-            Vector3 translation = firstRoom.entranceAnchor.position - transitionRoom.exitAnchor.position;
-            transitionRoom.transform.position = translation; // change the position of the transition room
+
+            // Get distance between current room entrance and Transition Room 1 exit Anchor
+            Vector3 spawnTranslation = firstRoom.entranceAnchor.position - playerSpawnRoom.exitAnchor.localPosition;
+            playerSpawnRoom.transform.position = spawnTranslation; // change the position of the entrance transition room
+            float spawnRoomAngle = firstRoom.entranceAnchor.rotation.eulerAngles.y - playerSpawnRoom.exitAnchor.rotation.eulerAngles.y;
+            playerSpawnRoom.transform.RotateAround(firstRoom.entranceAnchor.position, Vector3.up, spawnRoomAngle); // channge the rotation of the room */
+
+            // Get distance between current room exit and Transition Room 2 entrance Anchor
+            Vector3 endTranslation = firstRoom.exitAnchor.position - playerExitRoom.entranceAnchor.localPosition;
+            playerExitRoom.transform.position = endTranslation; // change the position of the exit transition room
+            float exitRoomAngle = firstRoom.exitAnchor.rotation.eulerAngles.y - playerExitRoom.entranceAnchor.rotation.eulerAngles.y;
+            playerExitRoom.transform.RotateAround(firstRoom.exitAnchor.position, Vector3.up, exitRoomAngle); // channge the rotation of the room */
 
         }
     }

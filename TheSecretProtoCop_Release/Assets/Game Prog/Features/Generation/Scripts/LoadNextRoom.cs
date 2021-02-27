@@ -5,8 +5,6 @@ namespace Gameplay.VR
 {
     public class LoadNextRoom : MonoBehaviour
     {
-        public TransitionRoom thisTransitionRoom;
-
         public bool passed { get; set; }
 
         public DoorBehavior door;
@@ -15,8 +13,6 @@ namespace Gameplay.VR
         {
             if (other.name == "[HeadCollider]" && !passed)
             {
-                LevelManager.instance.currentEntrance = thisTransitionRoom;
-
                 TransmitterManager.instance.SendRoomChangeToAll();
 
                 door.Power = 0;

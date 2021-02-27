@@ -77,9 +77,6 @@ namespace Gameplay
         [ReadOnly] public List<Vector3> aIPositions;
         [ReadOnly] public List<Quaternion> aIRotations;
 
-        [Tooltip("This is the exit. It serves as the Entrance for the next room.")]
-        public TransitionRoom transitionRoom;
-
         public Transform entranceAnchor;
         public Transform exitAnchor;
 
