@@ -65,43 +65,22 @@ namespace Gameplay.VR
             visionPosition.y = targetPosition.y;
             visionPosition.z = transform.position.z;
 
-            if (entityType == EntityType.Camera)
-            {
-                Debug.Log("I'm at " + visionPosition);
-                Debug.Log("The Player is at " + targetPosition);
-            }
-
             sqrDistToTarget = (targetPosition - visionPosition).sqrMagnitude;
 
-            Debug.Log("1");
             // if the player is within the vision range
             if (sqrDistToTarget < rangeOfVision * rangeOfVision)
             {
                 // get the direction of the player's head...
                 targetDir = targetPosition - visionPosition;
 
-                Debug.Log("2");
                 //...if the angle between the looking dir of the entity and a target element is less than the cone of vision, then you can see him
                 if (Vector3.Angle(targetDir, transform.forward) <= coneOfVision * 0.5f && detected == false)
                 {
-                    Debug.Log("3");
                     if (Physics.Linecast(visionPosition, targetPosition, out hitInfo, visionLayerMask))
                     {
-                        Debug.Log("4");
                         // check if the hitObject is on the target LayerMask
-                        if ((targetLayerMask.value & (1 << hitInfo.collider.gameObject.layer)) > 0)
-                        {
-                            Debug.Log("I just spotted yo ass");
-                            Debug.DrawLine(transform.position, targetPosition, Color.green, 5f);
-                            return true;
-                        }
-
-                        else
-                        {
-                            Debug.Log("Can't see this lil bih");
-                            Debug.DrawLine(transform.position, targetPosition, Color.red, 5f);
-                            return false;
-                        }
+                        if ((targetLayerMask.value & (1 << hitInfo.collider.gameObject.layer)) > 0) return true;
+                        else return false;
                     }
                     else return false;
                 }

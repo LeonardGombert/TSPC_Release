@@ -141,10 +141,8 @@ namespace Gameplay
             LevelManager.instance.currentStartRoom = LevelManager.instance.currentExitRoom;
             LevelManager.instance.currentExitRoom = temp;
 
-            Debug.Log("REPARENTED TO TRANSITION ROOM");
-            LevelManager.instance.playerRig.parent = LevelManager.instance.currentStartRoom.transform;
-            playerStart.position = LevelManager.instance.playerRig.localPosition;
-
+            Debug.Log("MOVING SPAWN POSITION TO PLAYER");
+            LevelManager.instance.currentStartRoom.playerSpawn.position = LevelManager.instance.playerRig.position;
         }
 
         // called when going between rooms
@@ -166,9 +164,9 @@ namespace Gameplay
             playerExitRoom.transform.RotateAround(exitAnchor.position, Vector3.up, exitRoomAngle); // channge the rotation of the room */
             playerExitRoom.RoomExitConfig();
 
-            Debug.Log("REPARENTED TO PLAYERRIG TRANSFORM");
-            LevelManager.instance.playerRig.localPosition = playerStart.position;
-            LevelManager.instance.playerRig.parent = LevelManager.instance.playerRigTransform;
+            Debug.Log("MOVING PLAYER TO SPAWN POSITION");
+
+            LevelManager.instance.playerRig.position = LevelManager.instance.currentStartRoom.playerSpawn.position;
         }
 
     }

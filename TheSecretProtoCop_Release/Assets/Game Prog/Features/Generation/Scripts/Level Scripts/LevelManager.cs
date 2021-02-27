@@ -56,6 +56,7 @@ namespace Gameplay
 
         public void BuildLevel() => levelAssembler.AssembleLevel();
 
+        // starting a new game or restarting a level
         public void StartLevel()
         {
             level.rooms = LevelRooms;
@@ -115,6 +116,7 @@ namespace Gameplay
 
         public TransitionRoom playerSpawnRoom { get => LevelManager.instance.currentStartRoom; }
 
+        // only called when starting a new game or restarting a level
         public override void StartAt(int roomIndex)
         {
             LoadRoom(roomIndex);
@@ -137,6 +139,8 @@ namespace Gameplay
             }
 
             else TransmitterManager.instance.SendWinToAll();
+
+            Debug.Log("Player pos after load is " + LevelManager.instance.playerRig.position);
         }
 
         protected override void SetPlayerRoom(RoomManager _currentRoom)
