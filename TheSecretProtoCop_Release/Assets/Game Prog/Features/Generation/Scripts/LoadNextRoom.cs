@@ -18,9 +18,6 @@ namespace Gameplay.VR
         {            
             if (other.name == "[HeadCollider]" && !beatRoom && transitionRoom == LevelManager.instance.currentExitRoom)
             {
-                // if the player enters the transition room, re-parent him to this object.
-                LevelManager.instance.playerRig.parent = transitionRoom.transform;
-
                 // load the next level
                 TransmitterManager.instance.SendRoomChangeToAll();
 

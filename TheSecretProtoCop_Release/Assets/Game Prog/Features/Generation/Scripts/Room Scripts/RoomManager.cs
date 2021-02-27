@@ -63,7 +63,7 @@ namespace Gameplay
 
         protected abstract void OnInitRoom();
         public abstract void OnEnterRoom();
-        public virtual void OnDisableRoom() { }
+        public abstract void OnDisableRoom();
     }
 
     [System.Serializable]
@@ -133,9 +133,25 @@ namespace Gameplay
             TransmitterManager.instance.symbolManager.LoadSymbols();
         }
 
+        // when the player beats the level and the current level is being unloaded...
+        public override void OnDisableRoom()
+        {
+            // flip the transition rooms around
+            TransitionRoom temp = LevelManager.instance.currentStartRoom;
+            LevelManager.instance.currentStartRoom = LevelManager.instance.currentExitRoom;
+            LevelManager.instance.currentExitRoom = temp;
+
+            Debug.Log("REPARENTED TO TRANSITION ROOM");
+            LevelManager.instance.playerRig.parent = LevelManager.instance.currentStartRoom.transform;
+            playerStart.position = LevelManager.instance.playerRig.localPosition;
+
+        }
+
         // called when going between rooms
         private void ConfigTransitionRooms()
         {
+            Debug.Log("MOVING TRANSITION ROOMS");
+
             // Get distance between current room entrance and Transition Room 1 exit Anchor
             Vector3 spawnTranslation = entranceAnchor.position - playerSpawnRoom.exitAnchor.localPosition;
             playerSpawnRoom.transform.position = spawnTranslation; // change the position of the entrance transition room
@@ -149,7 +165,12 @@ namespace Gameplay
             float exitRoomAngle = exitAnchor.rotation.eulerAngles.y - playerExitRoom.entranceAnchor.rotation.eulerAngles.y;
             playerExitRoom.transform.RotateAround(exitAnchor.position, Vector3.up, exitRoomAngle); // channge the rotation of the room */
             playerExitRoom.RoomExitConfig();
+
+            Debug.Log("REPARENTED TO PLAYERRIG TRANSFORM");
+            LevelManager.instance.playerRig.localPosition = playerStart.position;
+            LevelManager.instance.playerRig.parent = LevelManager.instance.playerRigTransform;
         }
+
     }
 
     [System.Serializable]
@@ -188,6 +209,11 @@ namespace Gameplay
 
             TransmitterManager.instance.switcherManager.StartAllSwitchers();
             TransmitterManager.instance.jammerManager.StartAllJammers();
+        }
+
+        public override void OnDisableRoom()
+        {
+
         }
     }
 }

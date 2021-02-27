@@ -76,7 +76,7 @@ namespace Gameplay
     {
         public List<RoomManager> rooms { get; set; } = new List<RoomManager>();
 
-        public int currentRoomIndex { get; protected set; }
+        [ShowInInspector] [ReadOnly] public int currentRoomIndex { get; protected set; }
         public RoomManager currentRoom { get; protected set; }
 
         public Room room { get => currentRoom.room; }
@@ -98,11 +98,6 @@ namespace Gameplay
 
         protected virtual void UnloadRoom(int index)
         {
-            // flip the transition rooms around
-            TransitionRoom temp = LevelManager.instance.currentStartRoom;
-            LevelManager.instance.currentStartRoom = LevelManager.instance.currentExitRoom;
-            LevelManager.instance.currentExitRoom = temp;
-
             rooms[index].room.transform.gameObject.SetActive(false);
             room.OnDisableRoom();
         }
@@ -134,7 +129,7 @@ namespace Gameplay
 
         public override void OnRoomChange()
         {
-            if (currentRoomIndex >= 1) UnloadRoom(currentRoomIndex - 1);
+            if (currentRoomIndex >= 0) UnloadRoom(currentRoomIndex);
 
             if (currentRoomIndex < rooms.Count - 1)
             {
