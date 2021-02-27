@@ -82,6 +82,9 @@ namespace Gameplay
 
         public Transform playerStart;
 
+        public TransitionRoom playerSpawnRoom { get => LevelManager.instance.currentStartRoom; }
+        public TransitionRoom playerExitRoom { get => LevelManager.instance.currentExitRoom; }
+
         protected override void OnInitRoom()
         {
             Debug.Log("Room Init");
@@ -100,9 +103,12 @@ namespace Gameplay
             init = false;
         }
 
+        // Once the player starts a new Room, do the following...
         public override void OnEnterRoom()
         {
             Debug.Log("Room Start");
+
+            ConfigTransitionRooms();
 
             if (init) OnInitRoom();
 
@@ -125,6 +131,24 @@ namespace Gameplay
             TransmitterManager.instance.jammerManager.StartAllJammers();
 
             TransmitterManager.instance.symbolManager.LoadSymbols();
+        }
+
+        // called when going between rooms
+        private void ConfigTransitionRooms()
+        {
+            // Get distance between current room entrance and Transition Room 1 exit Anchor
+            Vector3 spawnTranslation = entranceAnchor.position - playerSpawnRoom.exitAnchor.localPosition;
+            playerSpawnRoom.transform.position = spawnTranslation; // change the position of the entrance transition room
+            float spawnRoomAngle = entranceAnchor.rotation.eulerAngles.y - playerSpawnRoom.exitAnchor.rotation.eulerAngles.y;
+            playerSpawnRoom.transform.RotateAround(entranceAnchor.position, Vector3.up, spawnRoomAngle); // channge the rotation of the room */
+            playerSpawnRoom.RoomEntranceConfig();
+
+            // Get distance between current room exit and Transition Room 2 entrance Anchor
+            Vector3 endTranslation = exitAnchor.position - playerExitRoom.entranceAnchor.localPosition;
+            playerExitRoom.transform.position = endTranslation; // change the position of the exit transition room
+            float exitRoomAngle = exitAnchor.rotation.eulerAngles.y - playerExitRoom.entranceAnchor.rotation.eulerAngles.y;
+            playerExitRoom.transform.RotateAround(exitAnchor.position, Vector3.up, exitRoomAngle); // channge the rotation of the room */
+            playerExitRoom.RoomExitConfig();
         }
     }
 

@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using Networking;
 using Gameplay.VR;
 using Gameplay.Mobile;
+using System;
 
 namespace Gameplay
 {
@@ -16,6 +17,9 @@ namespace Gameplay
 
         public TransitionRoom currentStartRoom;
         public TransitionRoom currentExitRoom;
+
+        public Transform playerRigTransform;
+        public Transform playerRig;
 
         public LevelAssembler levelAssembler;
 
@@ -91,8 +95,14 @@ namespace Gameplay
             room.transform.gameObject.SetActive(true);
             room.OnEnterRoom();
         }
+
         protected virtual void UnloadRoom(int index)
         {
+            // flip the transition rooms around
+            TransitionRoom temp = LevelManager.instance.currentStartRoom;
+            LevelManager.instance.currentStartRoom = LevelManager.instance.currentExitRoom;
+            LevelManager.instance.currentExitRoom = temp;
+
             rooms[index].room.transform.gameObject.SetActive(false);
             room.OnDisableRoom();
         }
@@ -106,10 +116,9 @@ namespace Gameplay
     {
         public GameEvent refreshScene;
 
-        public Transform playerRig;
         public VR.PlayerBehavior playerBehavior;
 
-        public TransitionRoom playerSpawn { get => LevelManager.instance.currentStartRoom; }
+        public TransitionRoom playerSpawnRoom { get => LevelManager.instance.currentStartRoom; }
 
         public override void StartAt(int roomIndex)
         {
@@ -117,8 +126,8 @@ namespace Gameplay
 
             playerBehavior.ResetPlayer();
 
-            playerRig.position = playerSpawn.playerSpawn.position;
-            playerRig.rotation = playerSpawn.playerSpawn.rotation;
+            LevelManager.instance.playerRig.position = playerSpawnRoom.playerSpawn.position;
+            LevelManager.instance.playerRig.rotation = playerSpawnRoom.playerSpawn.rotation;
 
             refreshScene.Raise();
         }
@@ -127,7 +136,10 @@ namespace Gameplay
         {
             if (currentRoomIndex >= 1) UnloadRoom(currentRoomIndex - 1);
 
-            if (currentRoomIndex < rooms.Count - 1) LoadRoom(currentRoomIndex + 1);
+            if (currentRoomIndex < rooms.Count - 1)
+            {
+                LoadRoom(currentRoomIndex + 1);
+            }
 
             else TransmitterManager.instance.SendWinToAll();
         }
