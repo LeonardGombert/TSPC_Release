@@ -103,6 +103,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4562962441906701399}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   thrust: 1
   guardType: 0
   patrolBehavior: {fileID: 3329627162941776498}
@@ -777,6 +789,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1078856768317732896}
     m_Modifications:
+    - target: {fileID: 1140281111, guid: 2810d8b42f1c0e94586278c3336bf94a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1281
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140281111, guid: 2810d8b42f1c0e94586278c3336bf94a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0949
+      objectReference: {fileID: 0}
     - target: {fileID: 551492228925344476, guid: 2810d8b42f1c0e94586278c3336bf94a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

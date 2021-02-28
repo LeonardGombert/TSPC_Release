@@ -32,7 +32,6 @@ namespace Gameplay.AI
         public GameObject ragdollPrefab; public GameObject ragdoll { get; set; }
 
         [Title("Death")]
-
         public UnityEvent deathEvent;
         public float thrust = 1.0f;
 
