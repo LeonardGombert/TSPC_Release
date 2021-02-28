@@ -110,7 +110,9 @@ namespace Gameplay
 
             if (init) OnInitRoom();
 
-            /// Initialize Modifier //if (roomModifier != ModifierType.None) ModifiersManager.instance.Send("Init", RpcTarget.All, roomModifier);
+            /// Initialize Modifier
+            
+            //if (roomModifier != ModifierType.None) ModifiersManager.instance.Send("Init", RpcTarget.All, roomModifier);
 
             /// Initialize AI
 

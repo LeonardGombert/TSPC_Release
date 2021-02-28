@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 5644999184313053363}
   agentRig: {fileID: 2393533254127219212}
+  collider: {fileID: 4562962441906701399}
   ragdollPrefab: {fileID: 6087318401039403507, guid: 904e1e8768c24b044b6b8a8332a4abab, type: 3}
   deathEvent:
     m_PersistentCalls:
@@ -95,18 +96,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Gameplay.VR.OverwatchBehavior, Assembly-CSharp
         m_MethodName: UE_GuardDied
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4562962441906701399}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

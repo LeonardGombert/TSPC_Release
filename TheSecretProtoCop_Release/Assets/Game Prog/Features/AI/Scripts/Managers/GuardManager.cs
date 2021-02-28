@@ -7,7 +7,7 @@ namespace Gameplay.AI
 {
     public enum GuardType { Patrol, Static }
 
-    public class GuardManager : AgentManager
+    public class GuardManager : AgentManager 
     {
         [Title("Guard")]
         [SerializeField] private GuardType guardType; public GuardType GuardType { get => guardType; }

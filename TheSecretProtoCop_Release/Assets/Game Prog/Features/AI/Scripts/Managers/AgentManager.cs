@@ -12,7 +12,7 @@ namespace Gameplay.AI
 
     public enum Usage { Start, Resume, End }
 
-    public abstract class AgentManager : MonoBehaviour, IKillable
+    public abstract class AgentManager : MonoBehaviour, IKillable, IRefreshable
     {
         protected Dictionary<StateType, AgentBehavior> agentBehaviors = new Dictionary<StateType, AgentBehavior>();
 
@@ -29,6 +29,8 @@ namespace Gameplay.AI
         public NavMeshAgent navMeshAgent;
 
         public Transform agentRig;
+
+        public Collider collider;
         public GameObject ragdollPrefab; public GameObject ragdoll { get; set; }
 
         [Title("Death")]
@@ -106,6 +108,8 @@ namespace Gameplay.AI
                 RagdollBehavior ragdollBehavior = ragdoll.GetComponentInChildren<RagdollBehavior>();
                 ragdollBehavior.ActivateRagdollWithForce(force, ForceMode.Impulse);
 
+                collider.enabled = true;
+
                 deathEvent.Invoke();
 
                 isDead = true;
@@ -125,7 +129,12 @@ namespace Gameplay.AI
                 Destroy(ragdoll);
             }
 
+            collider.enabled = true;
             isDead = false;
+        }
+
+        public void Refresh()
+        {
         }
     }
 }
