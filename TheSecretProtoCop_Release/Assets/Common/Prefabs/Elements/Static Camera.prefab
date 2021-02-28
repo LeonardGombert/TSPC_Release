@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 5151282222398012667}
   - component: {fileID: 4624244806939327260}
   m_Layer: 11
-  m_Name: Camera Functions
+  m_Name: Vision (Detection)
   m_TagString: Camera/Static Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
