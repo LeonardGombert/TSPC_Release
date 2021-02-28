@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3990517943269501107}
   m_Layer: 0
-  m_Name: Walls
+  m_Name: ProB_Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 804125344253427436}
   m_Layer: 0
-  m_Name: Ceiling
+  m_Name: ProB_Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6597399104536398392}
   m_Layer: 0
-  m_Name: Floor
+  m_Name: ProB_Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

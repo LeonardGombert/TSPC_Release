@@ -32,4 +32,5 @@
     Room30,
     Room31,
     Room32,
+    Room47,
 }
