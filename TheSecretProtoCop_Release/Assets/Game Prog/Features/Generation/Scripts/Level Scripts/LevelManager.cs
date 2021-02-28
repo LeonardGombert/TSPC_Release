@@ -18,7 +18,6 @@ namespace Gameplay
         public TransitionRoom currentStartRoom;
         public TransitionRoom currentExitRoom;
 
-        public Transform playerRigTransform;
         public Transform playerRig;
 
         public LevelAssembler levelAssembler;
@@ -140,7 +139,7 @@ namespace Gameplay
 
             else TransmitterManager.instance.SendWinToAll();
 
-            Debug.Log("Player pos after load is " + LevelManager.instance.playerRig.position);
+            Debug.Log("PLAYER POSITION IS NOW " + LevelManager.instance.playerRig.position);
         }
 
         protected override void SetPlayerRoom(RoomManager _currentRoom)

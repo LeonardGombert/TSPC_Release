@@ -108,8 +108,6 @@ namespace Gameplay
         {
             Debug.Log("Room Start");
 
-            ConfigTransitionRooms();
-
             if (init) OnInitRoom();
 
             /// Initialize Modifier //if (roomModifier != ModifierType.None) ModifiersManager.instance.Send("Init", RpcTarget.All, roomModifier);
@@ -131,6 +129,8 @@ namespace Gameplay
             TransmitterManager.instance.jammerManager.StartAllJammers();
 
             TransmitterManager.instance.symbolManager.LoadSymbols();
+
+            ConfigTransitionRooms();
         }
 
         // when the player beats the level and the current level is being unloaded...
@@ -140,14 +140,13 @@ namespace Gameplay
             TransitionRoom temp = LevelManager.instance.currentStartRoom;
             LevelManager.instance.currentStartRoom = LevelManager.instance.currentExitRoom;
             LevelManager.instance.currentExitRoom = temp;
-
-            Debug.Log("MOVING SPAWN POSITION TO PLAYER");
-            LevelManager.instance.currentStartRoom.playerSpawn.position = LevelManager.instance.playerRig.position;
         }
 
         // called when going between rooms
         private void ConfigTransitionRooms()
         {
+            LevelManager.instance.playerRig.parent = LevelManager.instance.currentStartRoom.transform;
+
             Debug.Log("MOVING TRANSITION ROOMS");
 
             // Get distance between current room entrance and Transition Room 1 exit Anchor
@@ -163,12 +162,7 @@ namespace Gameplay
             float exitRoomAngle = exitAnchor.rotation.eulerAngles.y - playerExitRoom.entranceAnchor.rotation.eulerAngles.y;
             playerExitRoom.transform.RotateAround(exitAnchor.position, Vector3.up, exitRoomAngle); // channge the rotation of the room */
             playerExitRoom.RoomExitConfig();
-
-            Debug.Log("MOVING PLAYER TO SPAWN POSITION");
-
-            LevelManager.instance.playerRig.position = LevelManager.instance.currentStartRoom.playerSpawn.position;
         }
-
     }
 
     [System.Serializable]

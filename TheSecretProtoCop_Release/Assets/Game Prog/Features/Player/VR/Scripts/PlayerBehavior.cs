@@ -1,4 +1,5 @@
 ﻿using Networking;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace Gameplay.VR
     {
         public GameEvent _refreshScene;
 
-        public RoomManager currentRoom { get; set; }
+        [ShowInInspector] [ReadOnly] public RoomManager currentRoom { get; set; }
 
         private bool _isDead;
         public bool isDead { get { return _isDead; } set { _isDead = value; } }
@@ -40,6 +41,7 @@ namespace Gameplay.VR
 
         void Update()
         {
+            Debug.Log("MY POSITION IS " + rigTransform.position);
             // Rotation
             _playerRotation.Value = rigTransform.localRotation;
 

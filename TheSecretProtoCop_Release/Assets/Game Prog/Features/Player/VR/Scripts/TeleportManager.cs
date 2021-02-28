@@ -10,6 +10,8 @@ namespace Gameplay.VR.Player
 {
     public class TeleportManager : MonoBehaviour
     {
+        public static bool bIsTeleporting;
+
         [Tooltip("The duration of Teleportation. Expressed in seconds.")]
         [SerializeField] [FoldoutGroup("Teleportation Transition")] float tweenDuration = .25f;
         [Tooltip("The Teleportation's movement curve.")]
@@ -288,6 +290,8 @@ namespace Gameplay.VR.Player
 
         IEnumerator TeleportThePlayer()
         {
+            bIsTeleporting = true; 
+
             _oldArea.enabled = true;
             _oldArea = targetArea;
             targetArea.enabled = false;
@@ -319,6 +323,8 @@ namespace Gameplay.VR.Player
             }
 
             dashEffect.Stop();
+
+            bIsTeleporting = false;
         }
 
         public void GE_ResetGameOver()
