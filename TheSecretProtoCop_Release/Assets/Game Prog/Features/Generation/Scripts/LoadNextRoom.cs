@@ -31,6 +31,7 @@ namespace Gameplay.VR
             {
                 yield return null;
             }
+
             // load the next level
             TransmitterManager.instance.SendRoomChangeToAll();
 

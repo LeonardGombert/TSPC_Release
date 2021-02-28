@@ -147,7 +147,10 @@ namespace Gameplay
         {
             LevelManager.instance.playerRig.parent = LevelManager.instance.currentStartRoom.transform;
 
-            Debug.Log("MOVING TRANSITION ROOMS");
+            playerSpawnRoom.transform.position = Vector3.zero;
+            playerExitRoom.transform.position = Vector3.zero;
+            playerSpawnRoom.transform.rotation = Quaternion.identity;
+            playerExitRoom.transform.rotation = Quaternion.identity;
 
             // Get distance between current room entrance and Transition Room 1 exit Anchor
             Vector3 spawnTranslation = entranceAnchor.position - playerSpawnRoom.exitAnchor.localPosition;
@@ -162,6 +165,9 @@ namespace Gameplay
             float exitRoomAngle = exitAnchor.rotation.eulerAngles.y - playerExitRoom.entranceAnchor.rotation.eulerAngles.y;
             playerExitRoom.transform.RotateAround(exitAnchor.position, Vector3.up, exitRoomAngle); // channge the rotation of the room */
             playerExitRoom.RoomExitConfig();
+
+
+            LevelManager.instance.playerRig.parent = LevelManager.instance.playerRigTransform;
         }
     }
 
