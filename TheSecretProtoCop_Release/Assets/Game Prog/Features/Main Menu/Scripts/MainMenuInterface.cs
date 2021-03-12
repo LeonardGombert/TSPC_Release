@@ -70,9 +70,9 @@ namespace Gameplay
 
         public void OpenScene()
         {
-            if (platform == Platform.Mobile) GameManager.instance.LoadScene("GameSceneMobile");
+            if (platform == Platform.Mobile) GameManager.instance.LoadScene(GameScenes.GameScene_Mobile);
 
-            else if (platform == Platform.VR) GameManager.instance.LoadScene("GameSceneVR");
+            else if (platform == Platform.VR) GameManager.instance.LoadScene(GameScenes.GameScene_VR);
         }
 
         public void OpenLobbyCanvas()

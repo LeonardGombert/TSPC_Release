@@ -16,7 +16,7 @@ namespace Gameplay
         public bool ghostMode;
 
         public int currentLevelIndex { get; set; }
-        private string currentScene;
+        private GameScenes currentScene;
 
         public BoolVariable _isMobile;
         public BoolVariable _ghostingGame;
@@ -45,7 +45,7 @@ namespace Gameplay
 
             if (startGame)
             {
-                currentScene = null;
+                currentScene = GameScenes.Null;
                 LoadMainMenu();
             }
         }
@@ -102,16 +102,16 @@ namespace Gameplay
             if (_isMobile.Value) winCanvas.gameObject.SetActive(true);
         }
 
-        IEnumerator WaitLoadScene(string scene)
+        IEnumerator WaitLoadScene(GameScenes scene)
         {
             _fadeTransition.Raise();
             yield return new WaitForSeconds(1.0f);
 
-            if (currentScene != null) SceneManager.UnloadSceneAsync(currentScene);
+            if (currentScene != GameScenes.Null) SceneManager.UnloadSceneAsync((int)currentScene);
 
             yield return new WaitForEndOfFrame();
 
-            SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+            SceneManager.LoadScene((int)scene, LoadSceneMode.Additive);
             currentScene = scene;
             
             yield return new WaitForSeconds(1.0f);
@@ -120,7 +120,7 @@ namespace Gameplay
             yield break;
         }
 
-        public void LoadScene(string scene)
+        public void LoadScene(GameScenes scene)
         {
             StartCoroutine(WaitLoadScene(scene));
         }
@@ -131,7 +131,7 @@ namespace Gameplay
             loseCanvas.gameObject.SetActive(false);
 
             currentLevelIndex = 1;
-            LoadScene("GameSceneMainMenu");
+            LoadScene(GameScenes.GameScene_MainMenu);
         }
     }
 }
