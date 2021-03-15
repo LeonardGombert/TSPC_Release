@@ -43,24 +43,22 @@ namespace Gameplay.VR.Feedbacks
 
         public void GE_RefreshScene()
         {
-            Debug.LogError("REFRESHING");
-
             particles.Clear();
             teleportGlowers.Clear();
 
-            VisualEffect[] iteratorList = FindObjectsOfType<VisualEffect>();
+            TeleportAreaHandler[] iteratorList = FindObjectsOfType<TeleportAreaHandler>();
 
             // sort through all VFX graphs in the scene
             for (int i = 0; i < iteratorList.Length; i++)
-                if (iteratorList[i].visualEffectAsset == teleportationAreaAsset && iteratorList[i].enabled)
-                    particles.Add(iteratorList[i]);
+                if (iteratorList[i].levelIsActive)
+                {
+                    particles.AddRange(iteratorList[i].teleportParticles);
+                    teleportGlowers.AddRange(iteratorList[i].teleportGlow);
+                    break;
+                }
 
             for (int i = 0; i < particles.Count; i++)
                 particles[i].Stop();
-
-            teleportGlowers.AddRange(FindObjectsOfType<TeleportationArea>());
-
-            foreach (var item in teleportGlowers) if (item.enabled == false) Debug.Log(item.name + " is inactive !!!");
         }
     }
 }

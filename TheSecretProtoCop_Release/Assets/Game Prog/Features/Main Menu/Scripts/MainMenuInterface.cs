@@ -40,7 +40,6 @@ namespace Gameplay
             {
                 if (!_isMobile.Value) { 
                     generateCodeButton.onClick.Invoke();
-                    if (GameManager.instance._singlePlayer.Value) _OnRoomFulled.Raise();
                 }
             }
         }

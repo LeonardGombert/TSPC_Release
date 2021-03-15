@@ -85,6 +85,8 @@ namespace Gameplay
         public TransitionRoom playerSpawnRoom { get => LevelManager.instance.currentStartRoom; }
         public TransitionRoom playerExitRoom { get => LevelManager.instance.currentExitRoom; }
 
+        public TeleportAreaHandler teleportAreaHandler;
+
         protected override void OnInitRoom()
         {
             Debug.Log("Room Init");
@@ -123,7 +125,13 @@ namespace Gameplay
 
             roomNavigationSurface.BuildNavMesh();
 
+            Debug.Log("navmesh is " + roomNavigationSurface.size);
+
             aIManager.StartAllAgents();
+
+            Debug.Log("Agents have been started");
+
+            teleportAreaHandler.levelIsActive = true;
 
             /// Initialize Elements
 
@@ -138,6 +146,8 @@ namespace Gameplay
         // when the player beats the level and the current level is being unloaded...
         public override void OnDisableRoom()
         {
+            teleportAreaHandler.levelIsActive = false;
+
             // flip the transition rooms around
             TransitionRoom temp = LevelManager.instance.currentStartRoom;
             LevelManager.instance.currentStartRoom = LevelManager.instance.currentExitRoom;

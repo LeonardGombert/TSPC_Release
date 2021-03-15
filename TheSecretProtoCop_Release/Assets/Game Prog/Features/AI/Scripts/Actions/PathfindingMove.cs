@@ -39,6 +39,7 @@ namespace Gameplay.AI
 
         private void SetNavDestination(Vector3 dest)
         {
+            navMeshAgent.Warp(navMeshAgent.transform.position);
             navMeshAgent.SetDestination(dest);
         }
         #endregion
