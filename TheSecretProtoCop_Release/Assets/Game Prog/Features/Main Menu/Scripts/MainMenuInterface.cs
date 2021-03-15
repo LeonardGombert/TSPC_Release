@@ -40,7 +40,7 @@ namespace Gameplay
             {
                 if (!_isMobile.Value) { 
                     generateCodeButton.onClick.Invoke();
-                    _OnRoomFulled.Raise();
+                    if (GameManager.instance._singlePlayer.Value) _OnRoomFulled.Raise();
                 }
             }
         }
@@ -60,12 +60,15 @@ namespace Gameplay
         {
             if (!created)
             {
+                if (GameManager.instance._singlePlayer.Value) _OnRoomFulled.Raise();
+
                 int roomName = Random.Range(10000, 100000);
                 codeVRComponent.text = roomName.ToString();
 
                 _CreateRoom.Raise(codeVRComponent.text);
                 created = true;
             }
+
         }
 
         public void OpenScene()

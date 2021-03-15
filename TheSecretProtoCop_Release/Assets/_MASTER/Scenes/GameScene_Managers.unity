@@ -970,6 +970,10 @@ PrefabInstance:
       propertyPath: ghostMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1525769403144350535, guid: 7696dbd4dc514c64c8899dd0607249a7, type: 3}
+      propertyPath: _singlePlayer
+      value: 
+      objectReference: {fileID: 11400000, guid: 37ab919654bbf8545b2c3dd250592448, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7696dbd4dc514c64c8899dd0607249a7, type: 3}
 --- !u!4 &1525769403186798942 stripped

@@ -20,6 +20,7 @@ namespace Gameplay
 
         public BoolVariable _isMobile;
         public BoolVariable _ghostingGame;
+        public BoolVariable _singlePlayer;
 
         public Transform UICanvas;
 

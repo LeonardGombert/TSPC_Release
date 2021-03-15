@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.thesecretprotocop_release.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\sigame\\Documents\\GameDev\\TSPC_Release\\TheSecretProtoCop_Release\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "TheSecretProtoCop_Release [Testing]"
+        }
+      }
+    }
+  ]
+}
