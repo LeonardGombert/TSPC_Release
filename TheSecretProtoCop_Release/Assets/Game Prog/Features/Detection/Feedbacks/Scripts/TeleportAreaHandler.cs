@@ -1,4 +1,5 @@
-﻿using Gameplay.VR.Player;
+﻿#if UNITY_STANDALONE
+using Gameplay.VR.Player;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.VFX;
@@ -16,3 +17,4 @@ public class TeleportAreaHandler : MonoBehaviour
         teleportGlow = GetComponentsInChildren<TeleportationArea>();
     }
 }
+#endif

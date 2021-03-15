@@ -85,8 +85,9 @@ namespace Gameplay
         public TransitionRoom playerSpawnRoom { get => LevelManager.instance.currentStartRoom; }
         public TransitionRoom playerExitRoom { get => LevelManager.instance.currentExitRoom; }
 
+#if UNITY_STANDALONE
         public TeleportAreaHandler teleportAreaHandler;
-
+#endif
         protected override void OnInitRoom()
         {
             Debug.Log("Room Init");
@@ -113,7 +114,7 @@ namespace Gameplay
             if (init) OnInitRoom();
 
             /// Initialize Modifier
-            
+
             //if (roomModifier != ModifierType.None) ModifiersManager.instance.Send("Init", RpcTarget.All, roomModifier);
 
             /// Initialize AI
@@ -131,8 +132,9 @@ namespace Gameplay
 
             Debug.Log("Agents have been started");
 
+#if UNITY_STANDALONE
             teleportAreaHandler.levelIsActive = true;
-
+#endif
             /// Initialize Elements
 
             TransmitterManager.instance.switcherManager.StartAllSwitchers();
@@ -146,8 +148,9 @@ namespace Gameplay
         // when the player beats the level and the current level is being unloaded...
         public override void OnDisableRoom()
         {
+#if UNITY_STANDALONE
             teleportAreaHandler.levelIsActive = false;
-
+#endif
             // flip the transition rooms around
             TransitionRoom temp = LevelManager.instance.currentStartRoom;
             LevelManager.instance.currentStartRoom = LevelManager.instance.currentExitRoom;

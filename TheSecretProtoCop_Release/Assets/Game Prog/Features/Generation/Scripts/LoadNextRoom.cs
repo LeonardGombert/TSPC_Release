@@ -1,4 +1,6 @@
-﻿using Gameplay.VR.Player;
+﻿
+#if UNITY_STANDALONE
+using Gameplay.VR.Player;
 using Networking;
 using System;
 using System.Collections;
@@ -48,3 +50,4 @@ namespace Gameplay.VR
         }
     } 
 }
+#endif
