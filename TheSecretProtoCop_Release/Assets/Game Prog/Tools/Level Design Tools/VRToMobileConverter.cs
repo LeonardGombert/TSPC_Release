@@ -59,11 +59,12 @@ public class VRToMobileConverter : SerializedMonoBehaviour
         {
             // keeps track of which switcher container to instantiate in
             GameObject current = (GameObject)PrefabUtility.InstantiatePrefab(convertedSwitchers[i], mobileSwitcherParent.GetChild(Mathf.FloorToInt(i / 2)));
-            current.transform.position = switcherPositions[i].position;
+            current.transform.localPosition = switcherPositions[i].localPosition;
             current.transform.rotation = switcherPositions[i].rotation;
             current.GetComponent<SwitchableElement>().power = switcherPowerStates[i];
 
             GameObject electricalLine = (GameObject)PrefabUtility.InstantiatePrefab(electricalLinePrefab, mobileSwitcherParent.GetChild(Mathf.FloorToInt(i / 2)));
+            electricalLine.transform.position = new Vector3(current.transform.localPosition.x, 4.5f, current.transform.localPosition.z);
             electricalLine.GetComponent<SwitchableElement>().power = switcherPowerStates[i];
         }
     }

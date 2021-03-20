@@ -276,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: 0
   roomVR:
-    roomName: 
+    roomName: 0
     transform: {fileID: 0}
     roomCenter: {fileID: 0}
     roomOrigin: {fileID: 0}
@@ -288,8 +288,9 @@ MonoBehaviour:
     entranceAnchor: {fileID: 0}
     exitAnchor: {fileID: 0}
     playerStart: {fileID: 0}
+    teleportAreaHandler: {fileID: 0}
   roomMobile:
-    roomName: 
+    roomName: 0
     transform: {fileID: 1434463332309915463}
     roomCenter: {fileID: 5694389498398777042}
     roomOrigin: {fileID: 5896052462464491735}
