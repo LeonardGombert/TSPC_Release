@@ -12,7 +12,9 @@ namespace Gameplay.VR
         [SerializeField] private AudioSource audioSource;
 
         [Range(0, 1), SerializeField] private int state;
-        [Range(0, 1), SerializeField] private int power;
+        [Range(0, 1), SerializeField] private int power; 
+        public VRPrefabTypes prefabType { get { return VRPrefabTypes.Trap; } }
+
         public GameObject MyGameObject { get { return this.gameObject; } set { MyGameObject = value; } }
         public int State { get { return state; } set { state = value; } }
         public int Power

@@ -30,6 +30,9 @@ namespace Gameplay.VR
             }
         }
 
+        // remove the get/set here if moving cameras become a thing
+        public VRPrefabTypes prefabType { get { return VRPrefabTypes.StaticCamera; } }
+
         public GameObject MyGameObject { get { return this.gameObject; } set { MyGameObject = value; } }
 
         private void Awake()

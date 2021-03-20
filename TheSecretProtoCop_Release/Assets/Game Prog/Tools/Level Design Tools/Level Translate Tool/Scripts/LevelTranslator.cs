@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System.IO;
 using UnityEditor;
 
 
@@ -36,6 +33,7 @@ namespace Tools.LevelDesign
                 {
                     Debug.Log(elements.list[i].prefab.GetInstanceID());
                     Debug.Log(prefabsVR[j].GetInstanceID());
+
                     if (elements.list[i].prefab.GetInstanceID() == prefabsVR[j].GetInstanceID())
                     {
                         Debug.Log("3");
@@ -50,19 +48,16 @@ namespace Tools.LevelDesign
                                     Debug.Log("Last");
 
 
-#if UNITY_EDITOR
-                                    newObject = PrefabUtility.InstantiatePrefab(prefabsMobile[j] as GameObject, parent.GetChild(k)) as GameObject;
+                                    newObject = PrefabUtility.InstantiatePrefab(prefabsMobile[j], parent.GetChild(k)) as GameObject;
                                     newObject.GetComponent<Gameplay.ISwitchable>().State = parent.GetChild(k).GetChild(l).GetComponent<Gameplay.ISwitchable>().State;
                                     //newObject.GetComponent<Gameplay.ISwitchable>().Power = parent.GetChild(k).GetChild(l).GetComponent<Gameplay.ISwitchable>().Power;
                                     switchables.Add(parent.GetChild(k).GetChild(l).gameObject);
                                     break;
-#endif
 
                                 }
                             }
 
                         }
-
                     }
                 }
 

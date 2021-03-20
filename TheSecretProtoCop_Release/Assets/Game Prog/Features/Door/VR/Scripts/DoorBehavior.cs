@@ -34,6 +34,8 @@ namespace Gameplay.VR
             }
         }
 
+        public VRPrefabTypes prefabType { get { return VRPrefabTypes.Door; } }
+
         public GameObject MyGameObject { get { return this.gameObject; } set { MyGameObject = value; } }
 
         private void Start() => Power = power;

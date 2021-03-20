@@ -23,10 +23,9 @@ namespace Gameplay
         public List<Object> nodes = default;
 
         [Header("---IMPORTANT---")]
-        [Range(0, 1), SerializeField] private int state;
+        [Range(0, 1)] private int state;
         [Range(0, 1), SerializeField] private int power;
-        [Range(0, 10)]
-        public float ID = default;
+        [Range(0, 10)] public float ID = default;
 
         public enum SwitchTimer { None, Fixed }
 

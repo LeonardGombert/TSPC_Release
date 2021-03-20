@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -12,15 +12,12 @@ namespace Tools.LevelDesign
 {
     public class LevelSaver : MonoBehaviour
     {
-        const string saveLocation = "Assets/GD/Level Design/Blockout/Levels/";
+        const string saveLocation = "Assets/_MASTER/JSON Files/";
 
-        //[SerializeField] private Camera cam;
+        [SerializeField] GameObject[] parentSwitchers;
+        [SerializeField] ListOfISwitchableElement elements;
 
-        public GameObject[] parentSwitchers;
-
-        public ListOfISwitchableElement elements;
-
-        public string levelName;
+        [SerializeField] string levelName;
 
         string fullPath;
         string JsonString;
@@ -34,21 +31,21 @@ namespace Tools.LevelDesign
                 AddSwitcherChilds(parentSwitchers[i]);
             }
 
-            fullPath = saveLocation + levelName+"/"+levelName+".json";
+            fullPath = saveLocation + levelName + ".json";
 
             if (!File.Exists(fullPath))
             {
-                Directory.CreateDirectory(saveLocation + levelName + "/");
+                //Directory.CreateDirectory(saveLocation + levelName + "/");
                 File.Create(fullPath).Dispose();
             }
-                
+
             JsonString = File.ReadAllText(fullPath);
-            JsonString = JsonUtility.ToJson(elements,true);
+            JsonString = JsonUtility.ToJson(elements, true);
             File.WriteAllText(fullPath, JsonString);
 
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             AssetDatabase.Refresh();
-            #endif
+#endif
         }
 
         private void AddSwitcherChilds(GameObject switcher)
