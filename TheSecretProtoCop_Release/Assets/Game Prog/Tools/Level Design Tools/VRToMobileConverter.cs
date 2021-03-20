@@ -9,27 +9,23 @@ public class VRToMobileConverter : SerializedMonoBehaviour
     [SerializeField] Transform VRSwitcherParent, mobileSwitcherParent, mobileSwitcherUIParent, VRPropsParent, mobilePropsParent;
     [SerializeField, ReadOnly] GameObject switchersPrefab;
     [SerializeField, ReadOnly] GameObject switchersUIPrefab;
-    [SerializeField, ReadOnly] Dictionary<SwitchableType, GameObject> switcherConversionTable;
+    [SerializeField, ReadOnly] GameObject electricalLinePrefab;
+    [SerializeField] Dictionary<SwitchableType, GameObject> switcherConversionTable;
     [SerializeField] Dictionary<PropType, GameObject> propConversionTable;
     // save the contents of the VR container
 
     // FIFO list of objects to put out
-    List<GameObject> convertedSwitchers, convertedProps;
-    List<Transform> switcherPositions, propPositions;
+    List<GameObject> convertedSwitchers = new List<GameObject>(), convertedProps = new List<GameObject>();
+    List<Transform> switcherPositions = new List<Transform>(), propPositions = new List<Transform>();
+    List<int> switcherPowerStates = new List<int>();
 
     [Button]
-    [ExecuteInEditMode]
-    void ConvertVRLevelToMobile()
+    void ConvertSwitchers()
     {
         convertedSwitchers.Clear();
         switcherPositions.Clear();
+        switcherPowerStates.Clear();
 
-        // clear out any existing switchers
-        foreach (Transform child in mobileSwitcherParent.GetComponentsInChildren<Transform>()) DestroyImmediate(child.gameObject);
-        foreach (Transform child in mobileSwitcherUIParent.GetComponentsInChildren<Transform>()) DestroyImmediate(child.gameObject);
-        foreach (Transform child in mobilePropsParent.GetComponentsInChildren<Transform>()) DestroyImmediate(child.gameObject);
-
-        #region Convert Switchers
         // check the contents of the VR container, and instantiate the mobile Switcher Containers
         for (int i = 0; i < VRSwitcherParent.childCount; i++)
         {
@@ -54,8 +50,8 @@ public class VRToMobileConverter : SerializedMonoBehaviour
                 SwitchableElement current = currSwitcher.nodes[j];
                 convertedSwitchers.Add(switcherConversionTable[current.prefabType]); // add equivalent object to list
                 switcherPositions.Add(current.transform);
+                switcherPowerStates.Add(current.Power);
             }
-
         }
 
         // instantiate the mobile equivalent prefabs and position them
@@ -65,10 +61,19 @@ public class VRToMobileConverter : SerializedMonoBehaviour
             GameObject current = (GameObject)PrefabUtility.InstantiatePrefab(convertedSwitchers[i], mobileSwitcherParent.GetChild(Mathf.FloorToInt(i / 2)));
             current.transform.position = switcherPositions[i].position;
             current.transform.rotation = switcherPositions[i].rotation;
-        }
-        #endregion
+            current.GetComponent<SwitchableElement>().power = switcherPowerStates[i];
 
-        #region Convert Props
+            GameObject electricalLine = (GameObject)PrefabUtility.InstantiatePrefab(electricalLinePrefab, mobileSwitcherParent.GetChild(Mathf.FloorToInt(i / 2)));
+            electricalLine.GetComponent<SwitchableElement>().power = switcherPowerStates[i];
+        }
+    }
+
+    [Button]
+    void ConvertProps()
+    {
+        convertedProps.Clear();
+        propPositions.Clear();
+
         // check the contents of the VR container, and instantiate the mobile Switcher Containers
         for (int i = 0; i < VRPropsParent.childCount; i++)
         {
@@ -78,7 +83,8 @@ public class VRToMobileConverter : SerializedMonoBehaviour
 
                 convertedProps.Add(propConversionTable[currProp.propType]);
                 propPositions.Add(currProp.transform);
-            }finally { }
+            }
+            finally { }
         }
 
         // instantiate the mobile equivalent prefabs and position them
@@ -89,6 +95,5 @@ public class VRToMobileConverter : SerializedMonoBehaviour
             current.transform.position = propPositions[i].position;
             current.transform.rotation = propPositions[i].rotation;
         }
-        #endregion
     }
 }

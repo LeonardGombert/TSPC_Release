@@ -33,6 +33,7 @@ namespace Gameplay.Mobile
             secondTransform = second;
         }
 
+#if UNITY_EDITOR
         public void Update()
         {
             if (firstTransform != null & secondTransform != null)
@@ -42,6 +43,7 @@ namespace Gameplay.Mobile
             }
 
         }
+#endif
 
     }
 }

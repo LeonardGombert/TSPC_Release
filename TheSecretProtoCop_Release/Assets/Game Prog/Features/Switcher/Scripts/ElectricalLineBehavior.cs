@@ -30,7 +30,6 @@ namespace Gameplay.Mobile
 
         public override void TurnOff()
         {
-
             mat.DOColor(color * .4f, "_EmissionColor", .5f);
         }
 

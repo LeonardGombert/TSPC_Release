@@ -50,9 +50,6 @@ MonoBehaviour:
     - {fileID: 1308117188210570709, guid: f10c6e40c536b4a41b049721ca81cb6d, type: 3}
     - {fileID: 9117689954274621144, guid: 6e999d8351805d442a9bb9ab0933457a, type: 3}
     - {fileID: 259040996859140260, guid: 8b5737eb45332034ea4a066a32348f9b, type: 3}
-    - {fileID: 5348269389430665452, guid: a664506d6a3432346984bee6d307482a, type: 3}
-    - {fileID: 2787229966923790170, guid: d46910d1bcf6b9d48878632ec81a476b, type: 3}
-    - {fileID: 367238760329191446, guid: ed1389404206b4943a73c31e1a74dcae, type: 3}
     - {fileID: 3556746403235553381, guid: b404680118aa1974c94a2d31bbaeac77, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -160,8 +157,8 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: $v
-      Entry: 10
-      Data: 4
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -172,8 +169,8 @@ MonoBehaviour:
       Entry: 3
       Data: 2
     - Name: $v
-      Entry: 10
-      Data: 5
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -184,8 +181,8 @@ MonoBehaviour:
       Entry: 3
       Data: 3
     - Name: $v
-      Entry: 10
-      Data: 6
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -202,3 +199,4 @@ MonoBehaviour:
   mobilePropsParent: {fileID: 0}
   switchersPrefab: {fileID: 114141761505830322, guid: 8b80920ab150881418d9f4478939deaa, type: 3}
   switchersUIPrefab: {fileID: 3409338572498560281, guid: 5a0d1a8c8894ca04092436faa370d1a9, type: 3}
+  electricalLinePrefab: {fileID: 7462249052151418315, guid: 00ff7bbff9cea594c86f19095a0da461, type: 3}
