@@ -8,7 +8,7 @@ using Gameplay.Mobile;
 
 namespace Gameplay
 {
-    public class SwitcherBehavior : MonoBehaviour, ISwitchable
+    public class SwitcherBehavior : SwitchableElement
     {
         [Header("---References---")]
         public CallableFunction _switch = default;
@@ -20,12 +20,11 @@ namespace Gameplay
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioClip successPushClip;
         [SerializeField] private AudioClip failPushClip;
-        public List<Object> nodes = default;
+        public List<SwitchableElement> nodes = default;
 
         [Header("---IMPORTANT---")]
-        [Range(0, 1)] private int state;
-        [Range(0, 1), SerializeField] private int power;
         [Range(0, 10)] public float ID = default;
+        public override SwitchableType prefabType { get { return SwitchableType.Null; } }
 
         public enum SwitchTimer { None, Fixed }
 
@@ -37,7 +36,7 @@ namespace Gameplay
         public JammerBehavior jammer;
         private float currentTimer = 0;
 
-        public int State 
+        public override int State 
         { 
             get { return state; }
 
@@ -56,7 +55,7 @@ namespace Gameplay
             }
         }
 
-        public int Power
+        public override int Power
         {
             get { return power; }
 
@@ -80,8 +79,6 @@ namespace Gameplay
                 }
             }
         }
-
-        public GameObject MyGameObject { get { return this.gameObject; } set { MyGameObject = value; } }
 
         public void OnEnable() => SwitcherManager.switchers.Add(this);
         public void OnDisable() => SwitcherManager.switchers.Remove(this);
@@ -112,7 +109,7 @@ namespace Gameplay
         {
             if (nodes.Count != 0)
             {
-                foreach (ISwitchable node in nodes)
+                foreach (SwitchableElement node in nodes)
                 {
                     if (node.Power == 1) node.Power = 0;
                     else node.Power = 1;
@@ -138,7 +135,7 @@ namespace Gameplay
 
         public void SwitchChildrens()
         {
-            foreach (ISwitchable node in nodes)
+            foreach (SwitchableElement node in nodes)
             {
                 if (Power == 1)
                 {
@@ -171,19 +168,19 @@ namespace Gameplay
 
             for (int i = 0; i < transform.childCount; i++)
             {
-                if (transform.GetChild(i).gameObject.GetComponent<ISwitchable>() != null)
+                if (transform.GetChild(i).gameObject.GetComponent<SwitchableElement>() != null)
                 {
-                    nodes.Add(transform.GetChild(i).gameObject.GetComponent<ISwitchable>() as Object);
+                    nodes.Add(transform.GetChild(i).gameObject.GetComponent<SwitchableElement>());
                 }
             }
         }
 
-        public void TurnOn()
+        public override void TurnOn()
         {
             ChangeSwitch(true);
         }
 
-        public void TurnOff()
+        public override void TurnOff()
         {
             ChangeSwitch(false);
         }

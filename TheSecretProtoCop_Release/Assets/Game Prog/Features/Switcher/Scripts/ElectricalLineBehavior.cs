@@ -1,32 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using DG.Tweening;
 
 namespace Gameplay.Mobile
 {
     
-    public class ElectricalLineBehavior : MonoBehaviour, ISwitchable
+    public class ElectricalLineBehavior : SwitchableElement
     {
 
         private Material mat;
         private Color color;
-        [Range(0, 1), SerializeField] private int state;
-        [Range(0, 1), SerializeField] private int power;
         public List<GameObject> cylinders;
-        public int State { get { return state; } set { state = value; } }
-        public GameObject MyGameObject { get { return this.gameObject; } set { MyGameObject = value; } }
-        public int Power
-        {
-            get { return power; }
-            set
-            {
-                power = value;
-                if (power == 1) if (state == 1) TurnOn(); else TurnOff();
-                else TurnOff();
-            }
-        }
+        public override SwitchableType prefabType { get { return SwitchableType.Null; } }
+
         private void OnEnable()
         {
 
@@ -39,18 +26,15 @@ namespace Gameplay.Mobile
             
             
             Power = power;
-
-
-
         }
 
-        public void TurnOff()
+        public override void TurnOff()
         {
 
             mat.DOColor(color * .4f, "_EmissionColor", .5f);
         }
 
-        public void TurnOn()
+        public override void TurnOn()
         {
             mat.DOColor(color * 2, "_EmissionColor", .5f);
         }

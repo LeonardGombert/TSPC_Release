@@ -47,8 +47,9 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 2243126664052907472, guid: a7b299843e29f74409be28e41bd45ff9, type: 3}
     - {fileID: 1308117188210570709, guid: f10c6e40c536b4a41b049721ca81cb6d, type: 3}
+    - {fileID: 9117689954274621144, guid: 6e999d8351805d442a9bb9ab0933457a, type: 3}
+    - {fileID: 259040996859140260, guid: 8b5737eb45332034ea4a066a32348f9b, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -56,28 +57,57 @@ MonoBehaviour:
     SerializationNodes:
     - Name: prefabEquivalents
       Entry: 7
-      Data: 0|UnityEngine.Rendering.SerializedDictionary`2[[UnityEngine.GameObject,
-        UnityEngine.CoreModule],[UnityEngine.GameObject, UnityEngine.CoreModule]],
-        Unity.RenderPipelines.Core.Runtime
+      Data: 0|UnityEngine.Rendering.SerializedDictionary`2[[SwitchableType, Assembly-CSharp],[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], Unity.RenderPipelines.Core.Runtime
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.GameObject,
-        UnityEngine.CoreModule]], mscorlib
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[SwitchableType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
-      Entry: 10
+      Entry: 3
       Data: 0
     - Name: $v
       Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
       Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 2
     - Name: 
       Entry: 8
       Data: 

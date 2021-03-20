@@ -5,36 +5,21 @@ using Sirenix.OdinInspector;
 namespace Gameplay.VR
 {
     [RequireComponent(typeof(BoxCollider))]
-    public class TrapBehavior : MonoBehaviour, ISwitchable
+    public class TrapBehavior : SwitchableElement
     {
         [SerializeField] private MeshRenderer mesh;
         [SerializeField] private ParticleSystem ps;
         [SerializeField] private AudioSource audioSource;
 
-        [Range(0, 1), SerializeField] private int state;
-        [Range(0, 1), SerializeField] private int power; 
-        public VRPrefabTypes prefabType { get { return VRPrefabTypes.Trap; } }
-
-        public GameObject MyGameObject { get { return this.gameObject; } set { MyGameObject = value; } }
-        public int State { get { return state; } set { state = value; } }
-        public int Power
-        {
-            get { return power; }
-            set
-            {
-                power = value;
-                if (power == 1) if (state == 1) TurnOn(); else TurnOff();
-                else TurnOff();
-            }
-        }
+        public override SwitchableType prefabType{ get { return SwitchableType.Trap; } }
 
         private void Start()
         {
             Power = power;
         }
 
-        public void TurnOff() { GetComponent<BoxCollider>().enabled = false; }
-        public void TurnOn() { GetComponent<BoxCollider>().enabled = true; }
+        public override void TurnOff() { GetComponent<BoxCollider>().enabled = false; }
+        public override void TurnOn() { GetComponent<BoxCollider>().enabled = true; }
 
         private void OnTriggerEnter(Collider other)
         {

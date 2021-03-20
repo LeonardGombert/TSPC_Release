@@ -6,25 +6,13 @@ using DG.Tweening;
 
 namespace Gameplay.Mobile
 {
-    public class TrapBehavior : MonoBehaviour, ISwitchable
+    public class TrapBehavior : SwitchableElement
     {
         [SerializeField] private MeshRenderer mesh;
         [SerializeField] private SpriteRenderer icon;
         private Material mat;
-        [Range(0, 1), SerializeField] private int state;
-        [Range(0, 1), SerializeField] private int power;
-        public GameObject MyGameObject { get { return this.gameObject; } set { MyGameObject = value; } }
-        public int State { get { return state; } set { state = value; } }
-        public int Power
-        {
-            get { return power; }
-            set
-            {
-                power = value;
-                if (power == 1) if (state == 1) TurnOn(); else TurnOff();
-                else TurnOff();
-            }
-        }
+
+        public override SwitchableType prefabType { get { return SwitchableType.Trap; } }
 
         private void OnEnable()
         {
@@ -35,16 +23,16 @@ namespace Gameplay.Mobile
         private void Start() => Power = power;
 
 
-        public void TurnOff() 
+        public override void TurnOff()
         {
             icon.DOColor(Color.grey, .5f);
-            mat.DOColor(Color.red*.4f, "_EmissionColor", .5f);
+            mat.DOColor(Color.red * .4f, "_EmissionColor", .5f);
 
         }
-        public void TurnOn() 
+        public override void TurnOn()
         {
             icon.DOColor(Color.white, .5f);
-            mat.DOColor(Color.red * 2, "_EmissionColor", .5f); 
+            mat.DOColor(Color.red * 2, "_EmissionColor", .5f);
         }
 
     }

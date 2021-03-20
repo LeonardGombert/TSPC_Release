@@ -6,7 +6,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 namespace Gameplay.Mobile
 {
-    public class DoorBehavior : MonoBehaviour, ISwitchable
+    public class DoorBehavior : SwitchableElement
     {
 
         private Material mat;
@@ -15,9 +15,6 @@ namespace Gameplay.Mobile
 
         public enum LockState { Locked, Unlocked }
         public LockState lockState;
-
-        [Range(0, 1), SerializeField] private int state;
-        [Range(0, 1), SerializeField] private int power;
 
         [Header("---References---")]
         [SerializeField] private Color color_Open_Unlocked;
@@ -38,18 +35,9 @@ namespace Gameplay.Mobile
         private bool isSelected = false;
         public Text code;
         private RaycastHit hit;
-        public GameObject MyGameObject { get { return this.gameObject; } set { MyGameObject = value; } }
-        public int State { get { return state; } set { state = value; } }
-        public int Power
-        {
-            get { return power; }
-            set
-            {
-                power = value;
-                if (power == 1) if (state == 1) TurnOn(); else TurnOff();
-                else TurnOff();
-            }
-        }
+
+        public override SwitchableType prefabType { get { return SwitchableType.Door; } }
+
         private void OnEnable()
         {
 
@@ -122,12 +110,12 @@ namespace Gameplay.Mobile
 
         }
 
-        public void TurnOn()
+        public override void TurnOn()
         {
             mat.DOColor(color_Close * 2, "_EmissionColor", .5f);
         }
 
-        public void TurnOff()
+        public override void TurnOff()
         {
             if (lockState == LockState.Locked)
             {

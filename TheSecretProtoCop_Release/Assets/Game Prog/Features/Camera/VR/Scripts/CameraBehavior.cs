@@ -5,44 +5,17 @@ using UnityEngine;
 
 namespace Gameplay.VR
 {
-    public class CameraBehavior : MonoBehaviour, ISwitchable
+    public class CameraBehavior : SwitchableElement
     {
         [SerializeField] CameraPowerBehaviour cameraPowerBehaviour;
         public UnityEvent camerasOff, camerasOn;
 
-        [Range(0, 1), SerializeField] private int state;
-        [Range(0, 1), SerializeField] private int power;
+        private void Awake() => Power = power; 
+        public override SwitchableType prefabType { get { return SwitchableType.StaticCamera; } }
 
-        public int State
-        {
-            get { return state; }
-            set { state = value; }
+        [Button] public override void TurnOff() => cameraPowerBehaviour.PowerOff();
 
-        }
-        public int Power
-        {
-            get { return power; }
-            set
-            {
-                power = value;
-                if (power == 1) if (state == 1) TurnOn(); else TurnOff();
-                else TurnOff();
-            }
-        }
-
-        // remove the get/set here if moving cameras become a thing
-        public VRPrefabTypes prefabType { get { return VRPrefabTypes.StaticCamera; } }
-
-        public GameObject MyGameObject { get { return this.gameObject; } set { MyGameObject = value; } }
-
-        private void Awake()
-        {
-            Power = power;
-        }
-
-        [Button] public void TurnOff() => cameraPowerBehaviour.PowerOff();
-
-        [Button] public void TurnOn() => cameraPowerBehaviour.PowerOn();
+        [Button] public override void TurnOn() => cameraPowerBehaviour.PowerOn();
     }
 }
 #endif

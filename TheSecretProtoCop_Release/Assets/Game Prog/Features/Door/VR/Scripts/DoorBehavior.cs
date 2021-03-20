@@ -3,45 +3,19 @@ using Sirenix.OdinInspector;
 
 namespace Gameplay.VR
 {
-    public class DoorBehavior : MonoBehaviour, ISwitchable
+    public class DoorBehavior : SwitchableElement
     {
-        [Range(0, 1), SerializeField] private int state;
-        [Range(0, 1), SerializeField] private int power;
-
         [SerializeField] private Material red, green, blue;
         [SerializeField] private Renderer keyPassRenderer;
         [SerializeField] private Animator anim;
         [SerializeField] private UnityEngine.Events.UnityEvent _OnTurnOn;
         [SerializeField] private UnityEngine.Events.UnityEvent _OnTurnOff;
-
-        public int State
-        {
-            get { return state; }
-
-            set { state = value; }
-        }
-
-        public int Power
-        {
-            get { return power; }
-
-            set
-            {
-                power = value;
-
-                if (power == 1) TurnOn();
-                else TurnOff();
-            }
-        }
-
-        public VRPrefabTypes prefabType { get { return VRPrefabTypes.Door; } }
-
-        public GameObject MyGameObject { get { return this.gameObject; } set { MyGameObject = value; } }
+        public override SwitchableType prefabType { get { return SwitchableType.Door; } }
 
         private void Start() => Power = power;
 
         // Hodor (Lock)
-        public void TurnOn()
+        public override void TurnOn()
         {
             _OnTurnOn.Invoke();
 
@@ -50,7 +24,7 @@ namespace Gameplay.VR
         }
 
         // Open Door (Unlock)
-        public void TurnOff()
+        public override void TurnOff()
         {
             _OnTurnOff.Invoke();
             anim.ResetTrigger("Close");

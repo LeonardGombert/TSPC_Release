@@ -6,7 +6,7 @@ using DG.Tweening;
 
 namespace Gameplay.Mobile
 {
-    public class CameraBehavior : MonoBehaviour, ISwitchable
+    public class CameraBehavior : SwitchableElement
     {
         //[SerializeField] private LineRenderer visionLine;
         [SerializeField] private Color color;
@@ -15,21 +15,9 @@ namespace Gameplay.Mobile
         [SerializeField] private GameObject visualCam;
         private Material visualCamMat;
 
-        [Range(0, 1), SerializeField] private int state = 1;
-        [Range(0, 1), SerializeField] private int power = 1;
-        public GameObject MyGameObject { get { return this.gameObject; } set { MyGameObject = value; } }
-        public int State { get { return state; } set { state = value; } }
-        public int Power
-        {
+        public override SwitchableType prefabType { get { return SwitchableType.StaticCamera; } }
 
-            get { return power; }
-            set
-            {
-                power = value;
-                if (power == 1) if (state == 1) TurnOn(); else TurnOff();
-                else TurnOff();
-            }
-        }
+
         private void OnEnable()
         {
             visionConeMat = new Material(visionCone.GetComponent<MeshRenderer>().material);
@@ -39,9 +27,10 @@ namespace Gameplay.Mobile
             visualCam.GetComponent<MeshRenderer>().material = visualCamMat;
             //color = GetComponent<Image>().color;
         }
+
         private void Start() => Power = power;
 
-        public void TurnOff() 
+        public override void TurnOff() 
         {
             visionConeMat.DOColor(Color.black * 0, "ScanLineColor", .5f);
             visionConeMat.DOFloat(0, "Speed1", .5f);
@@ -49,7 +38,8 @@ namespace Gameplay.Mobile
 
             visualCamMat.DOColor(color, "_EmissionColor", .5f);
         }
-        public void TurnOn()
+
+        public override void TurnOn()
         {
             visionConeMat.DOColor(Color.red * 2, "ScanLineColor", .5f);
             visionConeMat.DOFloat(0.01f, "Speed1", .5f);
@@ -57,9 +47,6 @@ namespace Gameplay.Mobile
 
             visualCamMat.DOColor(color * 3, "_EmissionColor", .5f);
         }
-        //public void TurnOff() { GetComponent<Image>().DOColor(Color.black, .5f); visionLine.SetColors(Color.black, Color.black); }
-        //public void TurnOn() { GetComponent<Image>().DOColor(color, .5f); visionLine.SetColors(Color.red, Color.red); }
-
     }
 }
 
