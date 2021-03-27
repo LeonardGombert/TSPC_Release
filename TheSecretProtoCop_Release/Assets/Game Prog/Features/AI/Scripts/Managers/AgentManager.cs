@@ -108,7 +108,7 @@ namespace Gameplay.AI
                 RagdollBehavior ragdollBehavior = ragdoll.GetComponentInChildren<RagdollBehavior>();
                 ragdollBehavior.ActivateRagdollWithForce(force, ForceMode.Impulse);
 
-                collider.enabled = true;
+                collider.enabled = false;
 
                 deathEvent.Invoke();
 
