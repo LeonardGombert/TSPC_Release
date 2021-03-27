@@ -14,6 +14,7 @@ namespace Gameplay
 
         [Tooltip("Cannot Lose the Game")]
         public bool ghostMode;
+        public bool singlePlayer;
 
         public int currentLevelIndex { get; set; }
         private GameScenes currentScene;
@@ -43,6 +44,7 @@ namespace Gameplay
         void Start()
         {
             _ghostingGame.Value = ghostMode;
+            _singlePlayer.Value = singlePlayer;
 
             if (startGame)
             {

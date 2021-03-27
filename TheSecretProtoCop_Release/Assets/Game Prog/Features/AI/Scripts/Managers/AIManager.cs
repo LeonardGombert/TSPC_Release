@@ -13,12 +13,10 @@ namespace Gameplay.AI
         public static List<AgentManager> agents = new List<AgentManager>();
         public List<AgentManager> Agents { get => agents; }
 
-        // Unused
-        public void FindAllAgents()
+        public void AddMyAgents()
         {
             agents.Clear();
-            AgentManager[] agentsFound = FindObjectsOfType<AgentManager>();
-            foreach (AgentManager agent in agentsFound) agents.Add(agent);
+            agents.AddRange(GetComponentsInChildren<AgentManager>());
         }
 
         void Start()

@@ -92,13 +92,16 @@ namespace Gameplay
         {
             Debug.Log("Room Init");
 
-            /// Initialize AI
+            /// Initialize 
+
+            aIManager.AddMyAgents();
 
             aIPositions = new List<Vector3>();
             aIRotations = new List<Quaternion>();
 
             for (int i = 0; i < aIManager.Agents.Count; i++)
             {
+                Debug.Log("THERE ARE " + aIManager.Agents.Count + " AGENTS");
                 aIPositions.Add(aIManager.Agents[i].transform.position);
                 aIRotations.Add(aIManager.Agents[i].transform.rotation);
             }
@@ -119,10 +122,7 @@ namespace Gameplay
 
             /// Initialize AI
 
-            for (int i = 0; i < aIManager.Agents.Count; i++)
-            {
-                aIManager.Agents[i].Revive(aIPositions[i], aIRotations[i]);
-            }
+            for (int i = 0; i < aIManager.Agents.Count; i++) aIManager.Agents[i].Revive(aIPositions[i], aIRotations[i]);
 
             roomNavigationSurface.BuildNavMesh();
 

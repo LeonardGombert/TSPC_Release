@@ -37,8 +37,8 @@ namespace Gameplay.AI
         public UnityEvent deathEvent;
         public float thrust = 1.0f;
 
-        private void OnEnable() => AIManager.agents.Add(this);
-        private void OnDisable() => AIManager.agents.Remove(this);
+        /*private void OnEnable() => AIManager.agents.Add(this);
+        private void OnDisable() => AIManager.agents.Remove(this);*/
 
         void Awake()
         {

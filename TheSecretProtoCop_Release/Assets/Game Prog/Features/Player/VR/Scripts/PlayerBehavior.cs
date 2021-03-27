@@ -41,7 +41,6 @@ namespace Gameplay.VR
 
         void Update()
         {
-            Debug.Log("MY POSITION IS " + rigTransform.position);
             // Rotation
             _playerRotation.Value = rigTransform.localRotation;
 
