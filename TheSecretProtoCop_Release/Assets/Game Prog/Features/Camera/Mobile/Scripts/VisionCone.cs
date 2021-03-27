@@ -8,22 +8,25 @@ namespace Gameplay.Mobile
 
     public class VisionCone : MonoBehaviour
     {
-        [Header("NEW SHIT")]
-        public float viewAngle = 360;
-        public float viewRadius = 10;
-        public float meshResolution = 12;
-        public LayerMask obstacleMask;
-        public List<Vector3> hitLocations;
+        [SerializeField] float viewAngle = 360;
+        [SerializeField] float viewRadius = 10;
+        [SerializeField] float meshResolution = 12;
+        [SerializeField] LayerMask obstacleMask;
+        [SerializeField] List<Vector3> hitLocations;
         RaycastHit hit;
         float angle;
         Vector3 dir;
         public MeshFilter viewMeshFilter;
         Mesh viewMesh;
 
+        [SerializeField] bool isMovingCam = false;
+
         private void Start()
         {
             viewMesh = new Mesh();
             viewMeshFilter.mesh = viewMesh;
+            RaycastConeOfVision();
+            ConstructMesh();
         }
 
         void RaycastConeOfVision()
@@ -42,11 +45,8 @@ namespace Gameplay.Mobile
             }
         }
 
-        private void Update()
-        {
-            RaycastConeOfVision();
-            foreach (Vector3 position in hitLocations) Debug.DrawLine(transform.position, position, Color.white);
-
+        void ConstructMesh()
+        { 
             int vertexCount = hitLocations.Count + 1;
             Vector3[] vertices = new Vector3[vertexCount];
             int[] triangles = new int[(vertexCount - 2) * 3];

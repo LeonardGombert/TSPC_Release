@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976ac98cdd6c9364aa99f740bccb967f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 1
+  power: 0
   color: {r: 0.7490196, g: 0.5137255, b: 0.627451, a: 1}
   visionCone: {fileID: 4191469979946040873}
   visualCam: {fileID: 8952084204970858231}
-  state: 1
-  power: 0
 --- !u!1001 &365234688938013991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,6 +105,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: VisionCone
       objectReference: {fileID: 0}
+    - target: {fileID: 7397051660543612718, guid: 9140f65b65221b042a0ea5d042944e99, type: 3}
+      propertyPath: viewAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7397051660543612718, guid: 9140f65b65221b042a0ea5d042944e99, type: 3}
+      propertyPath: meshResolution
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7397051660543612718, guid: 9140f65b65221b042a0ea5d042944e99, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 524087
+      objectReference: {fileID: 0}
+    - target: {fileID: 7397051660543612718, guid: 9140f65b65221b042a0ea5d042944e99, type: 3}
+      propertyPath: viewMeshFilter
+      value: 
+      objectReference: {fileID: 4191469979946040874}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9140f65b65221b042a0ea5d042944e99, type: 3}
 --- !u!1 &4191469979946040873 stripped
@@ -115,6 +131,11 @@ GameObject:
 --- !u!4 &4191469979946040877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4556099928856283914, guid: 9140f65b65221b042a0ea5d042944e99, type: 3}
+  m_PrefabInstance: {fileID: 365234688938013991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &4191469979946040874 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 4556099928856283917, guid: 9140f65b65221b042a0ea5d042944e99, type: 3}
   m_PrefabInstance: {fileID: 365234688938013991}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8141761517501639590
