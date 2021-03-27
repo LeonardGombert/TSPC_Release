@@ -12,6 +12,7 @@ namespace Gameplay
     {
         public bool startGame;
 
+        public bool mobilePlatform;
         [Tooltip("Cannot Lose the Game")]
         public bool ghostMode;
         public bool singlePlayer;
@@ -43,6 +44,7 @@ namespace Gameplay
 
         void Start()
         {
+            _isMobile.Value = mobilePlatform;
             _ghostingGame.Value = ghostMode;
             _singlePlayer.Value = singlePlayer;
 
