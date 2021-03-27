@@ -8,88 +8,68 @@ namespace Gameplay.Mobile
 
     public class VisionCone : MonoBehaviour
     {
-        private Mesh mesh;
-        public float radius;
-        public int numberVertices;
-        public float angle;
-        private float newAngle;
-        private  Vector3 newVerticePos;
-        Vector3[] vertices;
-        public  List<Vector3> newVerticesPos;
-        public int[] triangles;
+        [Header("NEW SHIT")]
+        public float viewAngle = 360;
+        public float viewRadius = 10;
+        public float meshResolution = 12;
+        public LayerMask obstacleMask;
+        public List<Vector3> hitLocations;
+        RaycastHit hit;
+        float angle;
+        Vector3 dir;
+        public MeshFilter viewMeshFilter;
+        Mesh viewMesh;
 
         private void Start()
         {
-            mesh = new Mesh();
+            viewMesh = new Mesh();
+            viewMeshFilter.mesh = viewMesh;
+        }
 
-            GetComponent<MeshFilter>().mesh = mesh;
+        void RaycastConeOfVision()
+        {
+            hitLocations.Clear();
+            int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
+            float stepAngleSize = viewAngle / stepCount;
+
+            for (int i = 0; i <= stepCount; i++)
+            {
+                angle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
+                dir = new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad), 0, Mathf.Cos(angle * Mathf.Deg2Rad));
+
+                if (Physics.Raycast(transform.position, dir, out hit, viewRadius, obstacleMask)) hitLocations.Add(hit.point);
+                else hitLocations.Add(dir * viewRadius + new Vector3(transform.position.x, 0, transform.position.z));
+            }
         }
 
         private void Update()
         {
+            RaycastConeOfVision();
+            foreach (Vector3 position in hitLocations) Debug.DrawLine(transform.position, position, Color.white);
 
-            vertices = new Vector3[numberVertices];
-            triangles = new int[(numberVertices * 3)];
-            newAngle = angle / (float)(numberVertices);
-            newVerticesPos.Clear();
-            vertices[0] = transform.position;
-            newVerticesPos.Add(vertices[0]);
-            for (int i = 1; i < numberVertices; ++i)
+            int vertexCount = hitLocations.Count + 1;
+            Vector3[] vertices = new Vector3[vertexCount];
+            int[] triangles = new int[(vertexCount - 2) * 3];
+
+            vertices[0] = Vector3.zero;
+            for (int i = 0; i < vertexCount - 1; i++)
             {
-                RaycastHit hit;
-                newVerticePos = Quaternion.AngleAxis((newAngle) * (float)(i - 1), transform.up) * transform.forward * radius ;
-                
+                vertices[i + 1] = transform.InverseTransformPoint(hitLocations[i]);
 
-                if (Physics.Raycast(vertices[0], newVerticePos, out hit, radius))
+                if (i < vertexCount - 2)
                 {
-                    vertices[i] = new Vector3(hit.point.x, vertices[i].y, hit.point.z);
-                   
+                    triangles[i * 3] = 0;
+                    triangles[i * 3 + 1] = i + 1;
+                    triangles[i * 3 + 2] = i + 2;
                 }
-                else
-                {
-                    vertices[i] = newVerticePos + transform.position;
-
-                }
-                vertices[i] = transform.rotation * (vertices[i] - vertices[0]) + vertices[0];
-                newVerticesPos.Add(vertices[i]);
-            }
-            
-
-
-            for (int i = 0; i + 2 < numberVertices; ++i)
-            {
-                int index = i * 3;
-                triangles[index + 0] = 0;
-                triangles[index + 1] = i + 1;
-                triangles[index + 2] = i + 2;
             }
 
-            mesh.Clear();
-            mesh.vertices = vertices;
-            mesh.triangles = triangles;
+            viewMesh.Clear();
 
+            viewMesh.vertices = vertices;
+            viewMesh.triangles = triangles;
+            viewMesh.RecalculateNormals();
         }
-
-        private void OnDrawGizmos()
-        {
-            if(newVerticesPos.Count != 0)
-            {
-                for (int i = 0; i < newVerticesPos.Count; i++)
-                {
-                    Gizmos.color = Color.red;
-                    Gizmos.DrawSphere(newVerticesPos[i], .1f);
-
-                }
-            }
-
-            Vector3 axis = Quaternion.AngleAxis((transform.eulerAngles.y), transform.up) * transform.forward * radius;
-            Gizmos.color = Color.red;
-            Gizmos.DrawRay(transform.position, newVerticePos);
-            Gizmos.color = Color.blue;
-            Gizmos.DrawRay(transform.position, axis);
-
-        }
-
     }
 }
 
